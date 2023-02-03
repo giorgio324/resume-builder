@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+=============== 
+Fonts
+===============
+*/
+
+@font-face {
+ font-family: "HelveticaNeue";
+ src: url(fonts/HelveticaNeue.ttc);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+ --white: #FFFFFF;
+ --black: #000000;
+ --clr-grey: #F9F9F9;
+ --clr-btn-default: #0E80BF;
+ --clr-btn-next: #6B40E3;
+ --clr-input-placeholder: rgba(0, 0, 0, 0.6);
+ --clr-validation-default: #BCBCBC;
+ --clr-validation-success: #98E37E;
+ --clr-validation-danger: #EF5050;
+ --clr-offblack: #1A1A1A;
+ --ff-primary: "HelveticaNeue", sans-serif;
+ --transition: all 0.3s linear;
+ --radius: 4px;
+ --line-hight: 21px;
+}
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ font-family: var(--ff-primary);
+ background: var(--White);
+ color: var(--clr-grey-1);
+}
+
+img {
+ width: 100%;
+ display: block;
 }

@@ -44,3 +44,9 @@
  justify-content: space-between;
  align-items: center;
 }
+
+.user-img {
+ width: 246px;
+ height: 246px;
+ object-fit: cover;
+}

@@ -1,13 +1,15 @@
 import './Build.css';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import arrow from '../../images/back-arrow.svg';
 const Resume = () => {
   const [page, setPage] = useState(1);
   const [name, setName] = useState('');
   const [position, setPosition] = useState('');
-  const [email, setEmail] = useState('');
+  const [image, setImage] = useState(null);
+  const pictureHandler = (e) => {
+    setImage(URL.createObjectURL(e.target.files[0]));
+  };
   return (
     <div className='resume-container'>
       <div className='private-info-container'>
@@ -40,17 +42,14 @@ const Resume = () => {
             onChange={(e) => setPosition(e.target.value)}
           />
           <br />
-          <input
-            type='file'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+
+          <input onChange={pictureHandler} type='file' name='picture' />
         </div>
       </div>
       <div className='result'>
         <h1>{name}</h1>
         <p>{position}</p>
-        <p>{email}</p>
+        <p>{image && <img src={image} className='user-img' />}</p>
       </div>
     </div>
   );

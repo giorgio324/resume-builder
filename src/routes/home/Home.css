@@ -1,0 +1,47 @@
+.create-resume-container {
+ min-height: 100vh;
+ background: url(../../images/home-background.jpg) no-repeat center/cover;
+ position: relative;
+}
+
+.create-resume {
+ padding: 0 70px;
+}
+
+.button-container {
+ min-height: calc(100vh - 93.54px);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.title {
+ padding: 25px 0;
+}
+
+.add-resume-btn {
+ background: var(--clr-offblack);
+ color: var(--white);
+ font-weight: 500;
+ font-size: 20px;
+ line-height: 24px;
+}
+
+.redbery-logo {
+ position: absolute;
+ left: 50%;
+ top: 50%;
+ transform: translate(45%, -10%);
+}
+
+.underline {
+ height: 0px;
+ border: 1px solid var(--clr-offblack);
+}
+
+.add-resume-btn {
+ padding: 18px 60px;
+ width: 464px;
+ height: 60px;
+ cursor: pointer;
+}

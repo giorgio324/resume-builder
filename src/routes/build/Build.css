@@ -1,0 +1,46 @@
+.resume-container {
+ display: flex;
+ background: var(--clr-grey);
+}
+
+.back-button-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: absolute;
+ top: 45px;
+ left: 48px;
+}
+
+.back-btn {
+ background: var(--white);
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ cursor: pointer;
+}
+
+.private-info {}
+
+.private-info-container {
+ position: relative;
+ width: 58vw;
+ padding: 0 150px;
+ padding-top: 45px;
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+}
+
+.result {
+ width: 42vw;
+ background: var(--white);
+ padding-top: 45px;
+}
+
+.private-info-title {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}

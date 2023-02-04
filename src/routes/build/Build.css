@@ -49,4 +49,16 @@
  width: 246px;
  height: 246px;
  object-fit: cover;
+ border-radius: 50%;
+}
+
+.user-name {
+ font-size: 34px;
+ color: var(--clr-primary);
+}
+
+.user-email,
+.user-phone {
+ display: flex;
+ gap: 5px;
 }

@@ -6,8 +6,8 @@ import emailIcon from '../../images/email.svg';
 import phoneIcon from '../../images/phone.svg';
 import { UserContext } from '../../context/global.context';
 const Resume = () => {
-  const [page, setPage] = useState(1);
-  const { privateInfo, setPrivateInfo } = useContext(UserContext);
+  const { privateInfo, setPrivateInfo, page, setPage } =
+    useContext(UserContext);
   const [image, setImage] = useState(null);
   const pictureHandler = (e) => {
     setImage(URL.createObjectURL(e.target.files[0]));
@@ -38,50 +38,88 @@ const Resume = () => {
             </div>
             <div className='underline'></div>
           </div>
-          <input
-            name='name'
-            type='text'
-            placeholder='Name'
-            value={privateInfo.name}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            name='lastName'
-            type='text'
-            placeholder='Position'
-            value={privateInfo.lastName}
-            onChange={handleChange}
-          />
-          <br />
+          <div className='name-lastname-container'>
+            <div className='user-name-input-container'>
+              <label htmlFor='name' className='user-name-input-label'>
+                სახელი
+              </label>
+              <input
+                name='name'
+                type='text'
+                placeholder='Name'
+                value={privateInfo.name}
+                onChange={handleChange}
+                className='user-name-input input-default'
+              />
+              <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+            </div>
+            <div className='user-lastName-input-container'>
+              <label htmlFor='lastName' className='user-name-input-label'>
+                გვარი
+              </label>
+              <input
+                name='lastName'
+                type='text'
+                className='input-default user-lastName-input'
+                placeholder='lastname'
+                value={privateInfo.lastName}
+                onChange={handleChange}
+              />
+              <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+            </div>
+          </div>
+          <div className='user-picture-input-container'>
+            <p>პირადი ფოტოს ატვირთვა</p>
+            <label htmlFor='file-input' className='user-name-input-label'>
+              ატვირთვა
+            </label>
+            <input
+              onChange={pictureHandler}
+              type='file'
+              style={{ display: 'none' }}
+              id='file-input'
+              name='image'
+            />
+          </div>
+          <div className='user-about-input-container'>
+            <label htmlFor='about' className='user-about-input-label'>
+              ჩემ შესახებ (არასავალდებულო)
+            </label>
+            <textarea
+              name='about'
+              type='text'
+              placeholder='ზოგადი ინფო შენს შესახებ'
+              value={privateInfo.about}
+              onChange={handleChange}
+            />
+          </div>
+          <div className='user-about-input-container'>
+            <label htmlFor='email'>ელ ფოსტა</label>
+            <input
+              name='email'
+              type='email'
+              placeholder='email'
+              className='input-default email-input'
+              value={privateInfo.email}
+              onChange={handleChange}
+            />
 
-          <input onChange={pictureHandler} type='file' name='image' />
-          <input
-            name='about'
-            type='textarea'
-            placeholder='Name'
-            value={privateInfo.about}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            name='email'
-            type='email'
-            placeholder='Name'
-            value={privateInfo.email}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            name='phoneNumber'
-            type='text'
-            placeholder='Name'
-            value={privateInfo.phoneNumber}
-            onChange={handleChange}
-          />
-          <br />
-          <button className='btn' onClick={() => setPage(page + 1)}>
-            next
+            <p>უნდა მთავრდებოდეს @redberry.ge-ით </p>
+          </div>
+          <div className='user-number-input-container'>
+            <label htmlFor='phoneNumber'>მობილურის ნომერი</label>
+            <input
+              name='phoneNumber'
+              type='text'
+              className='input-default phone-input'
+              placeholder='+995 551 12 34 56'
+              value={privateInfo.phoneNumber}
+              onChange={handleChange}
+            />
+            <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
+          </div>
+          <button className='btn-next' onClick={() => setPage(page + 1)}>
+            შემდეგი
           </button>
         </div>
       </div>
@@ -100,7 +138,7 @@ const Resume = () => {
           </div>
         )}
         {privateInfo.lastName && privateInfo.lastName}
-        {image && <img src={image} className='user-img' />}
+        {image && <img src={image} className='user-img' alt='' />}
         {privateInfo.about}
       </div>
     </div>

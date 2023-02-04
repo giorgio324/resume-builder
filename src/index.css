@@ -56,3 +56,11 @@ button {
  border: none;
  border-radius: var(--radius)
 }
+
+input {
+ padding-left: 16px;
+}
+
+label {
+ display: block;
+}

@@ -2,7 +2,7 @@ import { useState, useContext, createContext } from 'react';
 
 export const UserContext = createContext();
 
-const UserContextProvider = ({ children }) => {
+export const UserContextProvider = ({ children }) => {
   const [privateInfo, setPrivateInfo] = useState({
     name: '',
     lastName: '',

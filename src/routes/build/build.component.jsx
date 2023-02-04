@@ -1,18 +1,13 @@
 import './Build.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import arrow from '../../images/back-arrow.svg';
 import emailIcon from '../../images/email.svg';
 import phoneIcon from '../../images/phone.svg';
+import { UserContext } from '../../context/global.context';
 const Resume = () => {
   const [page, setPage] = useState(1);
-  const [privateInfo, setPrivateInfo] = useState({
-    name: '',
-    lastName: '',
-    about: '',
-    email: '',
-    phoneNumber: '',
-  });
+  const { privateInfo, setPrivateInfo } = useContext(UserContext);
   const [image, setImage] = useState(null);
   const pictureHandler = (e) => {
     setImage(URL.createObjectURL(e.target.files[0]));

@@ -8,19 +8,47 @@ const CustomInput = ({
   onChangeFunc,
   value,
   isTextArea,
+  className,
+  labelClassFor,
+  id,
 }) => {
   return (
     <>
-      <label htmlFor={htmlForName} className='user-name-input-label'>
-        {label}
-      </label>
-      <input
-        type={type}
-        name={htmlForName}
-        placeholder={placeholder}
-        onChange={onChangeFunc}
-        value={value}
-      />
+      {isTextArea ? (
+        <>
+          <label
+            htmlFor={htmlForName}
+            className={`user-${labelClassFor}-input-label`}
+          >
+            {label}
+          </label>
+          <textarea
+            name={htmlForName}
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChangeFunc}
+          />
+        </>
+      ) : (
+        <>
+          <label
+            htmlFor={htmlForName}
+            className={`user-${labelClassFor}-input-label`}
+          >
+            {label}
+          </label>
+          <input
+            className={className}
+            type={type}
+            name={htmlForName}
+            placeholder={placeholder}
+            onChange={onChangeFunc}
+            id={id}
+            value={value}
+          />
+        </>
+      )}
     </>
   );
 };

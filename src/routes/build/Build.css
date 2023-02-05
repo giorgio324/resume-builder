@@ -49,6 +49,7 @@
  display: flex;
  justify-content: space-evenly;
  align-items: center;
+ padding-bottom: 12px;
 }
 
 .private-info-title h1 {
@@ -91,7 +92,7 @@
 
 .about-decoration {
  color: var(--clr-primary);
-
+ margin-bottom: 10px;
 }
 
 .user-about-result-container {
@@ -122,7 +123,7 @@
 .name-lastname-container {
 
  display: flex;
- padding-top: 77px;
+ padding-top: 45px;
  justify-content: space-around;
  gap: 56px;
 }
@@ -141,6 +142,10 @@
  align-items: center;
 }
 
+.user-picture-input {
+ display: none;
+}
+
 .user-picture-input-container p {
  font-size: 18px;
  margin: 54px 0;
@@ -155,6 +160,10 @@
  color: white;
  cursor: pointer;
 
+}
+
+.user-email-input {
+ width: 100%;
 }
 
 textarea {
@@ -181,7 +190,7 @@ textarea::placeholder {
  align-self: flex-end;
  color: white;
  padding: 12px 24px;
- margin-top: 160px;
+ margin-top: 108px;
  border-radius: var(--radius);
 }
 
@@ -197,10 +206,18 @@ textarea::placeholder {
  width: 100%;
 }
 
+
 /* watermark */
 .watermark {
  position: absolute;
  bottom: 0;
  left: 0;
  transform: translate(calc(80px + 50%), -100%);
+}
+
+/* input containers */
+.user-number-input-container,
+.user-email-input-container,
+.user-about-input-container {
+ margin: 12px 0;
 }

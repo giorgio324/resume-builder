@@ -34,89 +34,80 @@ const PrivateInfo = () => {
         </div>
         <div className='name-lastname-container'>
           <div className='user-name-input-container'>
-            {/* <label htmlFor='name' className='user-name-input-label'>
-              სახელი
-            </label>
-            <input
-              name='name'
-              type='text'
-              placeholder='Name'
-              value={privateInfo.name}
-              onChange={handleChange}
-              className='user-name-input input-default'
-            /> */}
             <CustomInput
+              className={'user-name-input input-default'}
               htmlForName='name'
-              label={'SAXELI'}
+              label={'სახელი'}
               onChangeFunc={handleChange}
               value={privateInfo.name}
-              placeholder={'SAXELII'}
+              placeholder={'ანზორ'}
               type='text'
+              labelClassFor={'name'}
             />
             <p>მინიმუმ 2 ასო, ქართული ასოები</p>
           </div>
           <div className='user-lastName-input-container'>
-            <label htmlFor='lastName' className='user-lastName-input-label'>
-              გვარი
-            </label>
-            <input
-              name='lastName'
-              type='text'
-              className='input-default user-lastName-input'
-              placeholder='lastname'
+            <CustomInput
+              className={'input-default user-lastName-input'}
+              htmlForName={'lastName'}
+              label={'გვარი'}
+              onChangeFunc={handleChange}
+              placeholder={'მუმლაძე'}
+              type={'text'}
               value={privateInfo.lastName}
-              onChange={handleChange}
+              labelClassFor={'lastName'}
             />
             <p>მინიმუმ 2 ასო, ქართული ასოები</p>
           </div>
         </div>
         <div className='user-picture-input-container'>
           <p>პირადი ფოტოს ატვირთვა</p>
-          <label htmlFor='file-input' className='user-picture-input-label'>
-            ატვირთვა
-          </label>
-          <input
-            onChange={pictureHandler}
-            type='file'
-            style={{ display: 'none' }}
-            id='file-input'
-            name='image'
+          <CustomInput
+            className={'input-default user-picture-input'}
+            htmlForName={'file-input'}
+            label={'ატვირთვა'}
+            onChangeFunc={pictureHandler}
+            type={'file'}
+            id={'file-input'}
+            labelClassFor={'picture'}
           />
         </div>
         <div className='user-about-input-container'>
-          <label htmlFor='about' className='user-about-input-label'>
-            ჩემ შესახებ (არასავალდებულო)
-          </label>
-          <textarea
-            name='about'
-            type='text'
-            placeholder='ზოგადი ინფო შენს შესახებ'
+          <CustomInput
+            className={'input-default user-about-input'}
+            htmlForName={'about'}
+            label={'ჩემ შესახებ (არასავალდებულო)'}
+            onChangeFunc={handleChange}
+            placeholder={'ზოგადი ინფო შენს შესახებ'}
+            type={'text'}
             value={privateInfo.about}
-            onChange={handleChange}
+            labelClassFor={'about'}
+            isTextArea
           />
         </div>
-        <div className='user-about-input-container'>
-          <label htmlFor='email'>ელ ფოსტა</label>
-          <input
-            name='email'
-            type='email'
-            placeholder='email'
-            className='input-default email-input'
+        <div className='user-email-input-container'>
+          <CustomInput
+            className={'input-default user-email-input'}
+            htmlForName={'email'}
+            label={'ელ ფოსტა'}
+            onChangeFunc={handleChange}
+            placeholder={'anzorr666@redberry.ge'}
+            type={'email'}
             value={privateInfo.email}
-            onChange={handleChange}
+            labelClassFor={'email'}
           />
-
           <p>უნდა მთავრდებოდეს @redberry.ge-ით </p>
         </div>
         <div className='user-number-input-container'>
-          <label htmlFor='phoneNumber'>მობილურის ნომერი</label>
-          <input
-            name='phoneNumber'
-            type='text'
-            className='input-default phone-input'
-            placeholder='+995 551 12 34 56'
+          <CustomInput
+            className={'input-default phone-input'}
+            htmlForName={'phoneNumber'}
+            label={'მობილურის ნომერი'}
+            onChangeFunc={handleChange}
+            placeholder={'+995 551 12 34 56'}
+            type={'text'}
             value={privateInfo.phoneNumber}
-            onChange={handleChange}
+            labelClassFor={'phoneNumber'}
           />
           <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
         </div>

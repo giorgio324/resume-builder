@@ -1,16 +1,11 @@
-.resume-container {
- display: flex;
- flex-direction: row;
- background: var(--clr-grey);
-}
-
+/* back to main page button  */
 .back-button-container {
  display: flex;
  justify-content: center;
  align-items: center;
  position: absolute;
  top: 45px;
- left: 48px;
+ left: 45px;
 }
 
 .back-btn {
@@ -25,6 +20,7 @@
  transform: translateX(25%);
 }
 
+/* private info */
 .private-info-container {
  position: relative;
  width: 100%;
@@ -34,14 +30,12 @@
  justify-content: space-between;
 }
 
-
+/* preview */
 .result-container {
  position: relative;
  width: 85vw;
- display: flex;
  padding: 0 80px;
  background: var(--white);
- justify-content: space-between;
  padding-top: 45px;
 }
 
@@ -220,4 +214,15 @@ textarea::placeholder {
 .user-email-input-container,
 .user-about-input-container {
  margin: 12px 0;
+}
+
+/* result-underline */
+.result-underline {
+ border: 1px solid #C8C8C8;
+ margin-top: 15px;
+}
+
+.private-info-result-container {
+ display: flex;
+ justify-content: space-between;
 }

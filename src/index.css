@@ -68,3 +68,10 @@ input {
 label {
  display: block;
 }
+
+/* entire resume app is contained here */
+.resume-container {
+ display: flex;
+ flex-direction: row;
+ background: var(--clr-grey);
+}

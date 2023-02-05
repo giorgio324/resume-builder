@@ -75,3 +75,13 @@ label {
  flex-direction: row;
  background: var(--clr-grey);
 }
+
+/* private info */
+.private-info-container {
+ position: relative;
+ width: 100%;
+ min-height: 100vh;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}

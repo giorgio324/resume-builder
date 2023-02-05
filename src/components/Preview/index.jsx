@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 import emailIcon from '../../images/email.svg';
 import phoneIcon from '../../images/phone.svg';
 import watermark from '../../images/watermark.svg';

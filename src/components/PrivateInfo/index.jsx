@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 import CustomInput from '../CustomInput';

@@ -1,0 +1,50 @@
+.input-default {
+ background: #FFFFFF;
+ border: 1px solid #BCBCBC;
+ border-radius: 4px;
+ height: 48px;
+ padding-left: 16px;
+ margin: 8px 0;
+}
+
+.user-name-input,
+.user-lastName-input,
+.user-email-input,
+.phone-input,
+.user-name-input-container,
+.user-lastName-input-container {
+ width: 100%;
+}
+
+/* input containers */
+.user-number-input-container,
+.user-email-input-container,
+.user-about-input-container {
+ margin: 12px 0;
+}
+
+.user-picture-input-container {
+ display: flex;
+
+ align-items: center;
+}
+
+.user-picture-input {
+ display: none;
+}
+
+.user-picture-input-container p {
+ font-size: 18px;
+ margin: 54px 0;
+}
+
+.user-picture-input-container label {
+ margin-left: 19px;
+ padding: 5px 12px;
+ font-size: 14px;
+ background: var(--clr-btn-default);
+ border-radius: var(--radius);
+ color: white;
+ cursor: pointer;
+
+}

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './routes/home/home.component';
-import Resume from './routes/build/build.component';
+import Home from './routes/home/home';
+import Resume from './routes/build/build';
 function App() {
   return (
     <Routes>

@@ -9,8 +9,10 @@ export const UserContextProvider = ({ children }) => {
     about: '',
     email: '',
     phoneNumber: '',
+    image: '',
   });
   const [page, setPage] = useState(1);
+
   return (
     <UserContext.Provider
       value={{ privateInfo, setPrivateInfo, page, setPage }}

@@ -52,6 +52,10 @@ body {
  background: var(--White);
 }
 
+p {
+ font-family: var(--ff-primary);
+}
+
 button {
  border: none;
  border-radius: var(--radius)

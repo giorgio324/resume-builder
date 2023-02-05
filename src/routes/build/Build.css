@@ -1,5 +1,6 @@
 .resume-container {
  display: flex;
+ flex-direction: row;
  background: var(--clr-grey);
 }
 
@@ -18,33 +19,40 @@
  height: 40px;
  border-radius: 50%;
  cursor: pointer;
+ position: absolute;
+ top: 0;
+ left: 0;
+ transform: translateX(25%);
 }
 
 .private-info-container {
  position: relative;
- width: 60vw;
- padding: 0 120px;
- padding-top: 45px;
+ width: 100%;
  min-height: 100vh;
  display: flex;
- flex-direction: column;
- justify-content: flex-start;
+ flex-direction: row;
+ justify-content: space-between;
 }
 
-.name-lastname-container {
- padding-top: 77px;
-}
 
-.result {
- width: 40vw;
+.result-container {
+ position: relative;
+ width: 85vw;
+ display: flex;
+ padding: 0 80px;
  background: var(--white);
+ justify-content: space-between;
  padding-top: 45px;
 }
 
 .private-info-title {
  display: flex;
- justify-content: space-between;
+ justify-content: space-evenly;
  align-items: center;
+}
+
+.private-info-title h1 {
+ width: 100%;
 }
 
 .user-img {
@@ -54,9 +62,40 @@
  border-radius: 50%;
 }
 
-.user-name {
+.user-name,
+.user-lastName {
  font-size: 34px;
  color: var(--clr-primary);
+}
+
+.user-lastName {
+ text-align: center;
+}
+
+.user-name-lastName-result-container {
+ display: flex;
+
+ gap: 20px;
+ word-break: normal;
+}
+
+.user-email-phone-result-container {
+ padding: 8px 0;
+}
+
+.user-email-phone-result-container .user-email,
+.user-phone {
+ padding: 5px 0;
+
+}
+
+.about-decoration {
+ color: var(--clr-primary);
+
+}
+
+.user-about-result-container {
+ word-break: break-all;
 }
 
 .user-email,
@@ -69,25 +108,32 @@
  background: #FFFFFF;
  border: 1px solid #BCBCBC;
  border-radius: 4px;
- width: 360px;
+ width: 371px;
  height: 48px;
  padding-left: 16px;
  margin: 8px 0;
 }
 
-.user-name-input-container {
- margin-right: 38px;
+.user-name-input,
+.user-lastName-input {
+ width: 100%;
 }
 
 .name-lastname-container {
+
  display: flex;
+ padding-top: 77px;
+ justify-content: space-around;
+ gap: 56px;
 }
 
 
+.user-name-input-container,
+.user-lastName-input-container {
+ width: 100%;
 
-.user-name-input-label {
- display: inline;
 }
+
 
 .user-picture-input-container {
  display: flex;
@@ -102,7 +148,7 @@
 
 .user-picture-input-container label {
  margin-left: 19px;
- padding: 4px 8px;
+ padding: 5px 12px;
  font-size: 14px;
  background: var(--clr-btn-default);
  border-radius: var(--radius);
@@ -142,4 +188,19 @@ textarea::placeholder {
 .private-info {
  display: flex;
  flex-direction: column;
+ width: 100%;
+ padding: 0 120px;
+ padding-top: 45px;
+}
+
+.result-info {
+ width: 100%;
+}
+
+/* watermark */
+.watermark {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ transform: translate(calc(80px + 50%), -100%);
 }

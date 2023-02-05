@@ -1,0 +1,21 @@
+/* back to main page button  */
+.back-button-container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ position: absolute;
+ top: 45px;
+ left: 45px;
+}
+
+.back-btn {
+ background: var(--white);
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ cursor: pointer;
+ position: absolute;
+ top: 0;
+ left: 0;
+ transform: translateX(25%);
+}

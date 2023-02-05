@@ -2,7 +2,7 @@ import './Build.css';
 import ResumeLayout from '../../Layouts/ResumeLayout';
 import Preview from '../../components/Preview';
 import PrivateInfo from '../../components/PrivateInfo';
-import Experience from '../../components/experience';
+import Experience from '../../components/Experience';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 const Resume = () => {

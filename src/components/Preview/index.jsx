@@ -52,6 +52,7 @@ const Preview = () => {
         </div>
       </div>
       {page > 1 ? <div className='result-underline'></div> : ''}
+      <h1>{privateInfo.position}</h1>
     </div>
   );
 };

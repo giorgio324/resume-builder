@@ -20,6 +20,7 @@ textarea {
  height: 103px;
  border-radius: var(--radius);
  padding-left: 16px;
+ padding-top: 8px;
  margin-top: 8px;
 }
 

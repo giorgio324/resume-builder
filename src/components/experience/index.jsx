@@ -14,14 +14,7 @@ const Experience = () => {
       return { ...prevInfo, [name]: value };
     });
   };
-
-  const pictureHandler = (e) => {
-    setPrivateInfo((prevInfo) => ({
-      ...prevInfo,
-      image: URL.createObjectURL(e.target.files[0]),
-    }));
-  };
-
+  console.log(privateInfo);
   return (
     <>
       <div className='experience-container'>
@@ -58,31 +51,29 @@ const Experience = () => {
           />
           <p>მინიმუმ 2 სიმბოლო </p>
         </div>
-        <div className='user-email-input-container'>
-          <CustomInput
-            className={'input-default user-email-input'}
-            htmlForName={'email'}
-            label={'ელ ფოსტა'}
-            onChangeFunc={handleChange}
-            placeholder={'anzorr666@redberry.ge'}
-            type={'email'}
-            value={privateInfo.email}
-            labelClass={'email'}
-          />
-          <p>უნდა მთავრდებოდეს @redberry.ge-ით </p>
-        </div>
-        <div className='user-number-input-container'>
-          <CustomInput
-            className={'input-default phone-input'}
-            htmlForName={'phoneNumber'}
-            label={'მობილურის ნომერი'}
-            onChangeFunc={handleChange}
-            placeholder={'+995 551 12 34 56'}
-            type={'text'}
-            value={privateInfo.phoneNumber}
-            labelClass={'phoneNumber'}
-          />
-          <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
+        <div className='experience-dates-container'>
+          <div className='user-start-date-input-container'>
+            <CustomInput
+              className={'input-default user-start-date-input'}
+              htmlForName={'startDate'}
+              label={'დაწყების რიცხვი'}
+              onChangeFunc={handleChange}
+              type={'date'}
+              value={privateInfo.startDate}
+              labelClass={'start-date-label'}
+            />
+          </div>
+          <div className='user-end-date-input-container'>
+            <CustomInput
+              className={'input-default user-end-date-input'}
+              htmlForName={'endDate'}
+              label={'დამთავრების რიცხვი'}
+              onChangeFunc={handleChange}
+              type={'date'}
+              value={privateInfo.endDate}
+              labelClass={'end-date-label'}
+            />
+          </div>
         </div>
         <div className='experience-description-input-container'>
           <CustomInput
@@ -98,10 +89,19 @@ const Experience = () => {
           />
         </div>
         <div className='result-underline'></div>
-
-        <button className='btn-next' onClick={() => setPage(page + 1)}>
-          შემდეგი
-        </button>
+        <div className='add-more-experience-button-container'>
+          <button className='add-more-information-button'>
+            მეტი გამოცდილების დამატება
+          </button>
+        </div>
+        <div className='navigation-button-container'>
+          <button className='btn-next' onClick={() => setPage(page - 1)}>
+            უკან
+          </button>
+          <button className='btn-next' onClick={() => setPage(page + 1)}>
+            შემდეგი
+          </button>
+        </div>
       </div>
     </>
   );

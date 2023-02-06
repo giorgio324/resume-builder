@@ -17,11 +17,60 @@
  width: 100%;
 }
 
-.experience-position-input-container {
- margin: 12px 0;
+.experience-position-input-container,
+.experience-employer-input-container,
+.experience-description-input-container {
+ margin: 31px 0;
 }
 
 .experience-position-input,
-.experience-employer-input {
+.experience-employer-input,
+.experience-description-input,
+.user-start-date-input-container,
+.user-end-date-input-container,
+.user-start-date-input,
+.user-end-date-input {
  width: 100%;
+}
+
+.experience-dates-container {
+ display: flex;
+ align-items: center;
+ gap: 56px;
+ justify-content: space-between;
+}
+
+/* calendar */
+input[type="date"] {
+ padding: 0.5em;
+ font-size: 1em;
+ border-radius: 0.25em;
+ border: 1px solid #ccc;
+ position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+ width: 18px;
+ height: 20px;
+ position: absolute;
+ right: 0;
+ top: 50%;
+ transform: translate(-50%, -50%);
+
+}
+
+/* next-back buttons */
+.navigation-button-container {
+ display: flex;
+ width: 100%;
+ justify-content: space-between;
+}
+
+/* add info btn */
+
+.add-more-information-button {
+ padding: 14px 21px;
+ margin-top: 45px;
+ background: #62A1EB;
+ color: white;
 }

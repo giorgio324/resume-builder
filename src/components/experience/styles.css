@@ -65,12 +65,3 @@ input[type="date"]::-webkit-calendar-picker-indicator {
  width: 100%;
  justify-content: space-between;
 }
-
-/* add info btn */
-
-.add-more-information-button {
- padding: 14px 21px;
- margin-top: 45px;
- background: #62A1EB;
- color: white;
-}

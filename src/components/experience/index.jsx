@@ -2,6 +2,7 @@ import React from 'react';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 import CustomInput from '../CustomInput';
+import CustomButton from '../CustomButton';
 import './styles.css';
 const Experience = () => {
   const { privateInfo, setPrivateInfo, page, setPage } =
@@ -90,17 +91,23 @@ const Experience = () => {
         </div>
         <div className='result-underline'></div>
         <div className='add-more-experience-button-container'>
-          <button className='add-more-information-button'>
-            მეტი გამოცდილების დამატება
-          </button>
+          <CustomButton
+            className={'add-more'}
+            buttonText={'მეტი გამოცდილების დამატება'}
+            onClickFunc={() => console.log('clicked')}
+          ></CustomButton>
         </div>
         <div className='navigation-button-container'>
-          <button className='btn-next' onClick={() => setPage(page - 1)}>
-            უკან
-          </button>
-          <button className='btn-next' onClick={() => setPage(page + 1)}>
-            შემდეგი
-          </button>
+          <CustomButton
+            className={'navigation-btn'}
+            onClickFunc={() => setPage(page - 1)}
+            buttonText={'უკან'}
+          ></CustomButton>
+          <CustomButton
+            className={'navigation-btn'}
+            onClickFunc={() => setPage(page + 1)}
+            buttonText={'შემდეგი'}
+          ></CustomButton>
         </div>
       </div>
     </>

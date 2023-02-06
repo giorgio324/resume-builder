@@ -3,6 +3,7 @@ import './styles.css';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 import CustomInput from '../CustomInput';
+import CustomButton from '../CustomButton';
 
 const PrivateInfo = () => {
   const { privateInfo, setPrivateInfo, page, setPage } =
@@ -112,9 +113,11 @@ const PrivateInfo = () => {
           />
           <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
         </div>
-        <button className='btn-next' onClick={() => setPage(page + 1)}>
-          შემდეგი
-        </button>
+        <CustomButton
+          className={'navigation-btn'}
+          onClickFunc={() => setPage(page + 1)}
+          buttonText={'შემდეგი'}
+        ></CustomButton>
       </div>
     </>
   );

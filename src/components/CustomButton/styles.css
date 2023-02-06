@@ -1,0 +1,18 @@
+/* next page button */
+.navigation-btn {
+ background: var(--clr-btn-next);
+ align-self: flex-end;
+ color: white;
+ padding: 14px 35px;
+ margin-top: 75px;
+ border-radius: var(--radius);
+}
+
+/* add info btn */
+
+.add-more {
+ padding: 14px 21px;
+ margin-top: 45px;
+ background: #62A1EB;
+ color: white;
+}

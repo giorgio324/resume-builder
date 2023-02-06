@@ -1,9 +1,0 @@
-/* next page button */
-.btn-next {
- background: var(--clr-btn-next);
- align-self: flex-end;
- color: white;
- padding: 14px 35px;
- margin-top: 75px;
- border-radius: var(--radius);
-}

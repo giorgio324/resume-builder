@@ -26,18 +26,16 @@ const PrivateInfo = () => {
 
   return (
     <>
-      <div className='private-info'>
-        <div className='private-info-title-container'>
-          <div className='private-info-title'>
-            <h1>პირადი ინფო</h1>
-            <p>{page}/3</p>
-          </div>
-          <div className='underline'></div>
+      <div className='fill-form-container'>
+        <div className='page-title'>
+          <h1>პირადი ინფო</h1>
+          <p>{page}/3</p>
         </div>
+        <div className='underline'></div>
         <div className='name-lastname-container'>
           <div className='user-name-input-container'>
             <CustomInput
-              className={'user-name-input input-default'}
+              className={'user-name-input '}
               htmlForName='name'
               label={'სახელი'}
               onChangeFunc={handleChange}
@@ -46,11 +44,11 @@ const PrivateInfo = () => {
               type='text'
               labelClass={'name-label'}
             />
-            <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+            <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
           </div>
           <div className='user-lastName-input-container'>
             <CustomInput
-              className={'input-default user-lastName-input'}
+              className={' user-lastName-input'}
               htmlForName={'lastName'}
               label={'გვარი'}
               onChangeFunc={handleChange}
@@ -59,13 +57,13 @@ const PrivateInfo = () => {
               value={privateInfo.lastName}
               labelClass={'lastName-label'}
             />
-            <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+            <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
           </div>
         </div>
         <div className='user-picture-input-container'>
           <p>პირადი ფოტოს ატვირთვა</p>
           <CustomInput
-            className={'input-default user-picture-input'}
+            className={' user-picture-input'}
             htmlForName={'file-input'}
             label={'ატვირთვა'}
             onChangeFunc={pictureHandler}
@@ -76,7 +74,7 @@ const PrivateInfo = () => {
         </div>
         <div className='user-about-input-container'>
           <CustomInput
-            className={'input-default user-about-input'}
+            className={' user-about-input'}
             htmlForName={'about'}
             label={'ჩემ შესახებ (არასავალდებულო)'}
             onChangeFunc={handleChange}
@@ -89,7 +87,7 @@ const PrivateInfo = () => {
         </div>
         <div className='user-email-input-container'>
           <CustomInput
-            className={'input-default user-email-input'}
+            className={' user-email-input'}
             htmlForName={'email'}
             label={'ელ ფოსტა'}
             onChangeFunc={handleChange}
@@ -98,11 +96,11 @@ const PrivateInfo = () => {
             value={privateInfo.email}
             labelClass={'email-label'}
           />
-          <p>უნდა მთავრდებოდეს @redberry.ge-ით </p>
+          <p className='hint'>უნდა მთავრდებოდეს @redberry.ge-ით </p>
         </div>
         <div className='user-number-input-container'>
           <CustomInput
-            className={'input-default phone-input'}
+            className={' phone-input'}
             htmlForName={'phoneNumber'}
             label={'მობილურის ნომერი'}
             onChangeFunc={handleChange}
@@ -111,7 +109,9 @@ const PrivateInfo = () => {
             value={privateInfo.phoneNumber}
             labelClass={'phoneNumber-label'}
           />
-          <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
+          <p className='hint'>
+            უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
+          </p>
         </div>
         <CustomButton
           className={'navigation-btn'}

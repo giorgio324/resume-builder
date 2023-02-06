@@ -1,12 +1,4 @@
 /* private-info container items */
-.private-info {
- display: flex;
- flex-direction: column;
- width: 100%;
- padding: 0 120px;
- padding-top: 45px;
-}
-
 .name-lastname-container {
  display: flex;
  padding-top: 45px;

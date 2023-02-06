@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
-const Experience = () => {
+const Education = () => {
   const { experienceInfo, setExperienceInfo, page, setPage } =
     useContext(UserContext);
 
@@ -30,12 +30,14 @@ const Experience = () => {
   console.log(experienceInfo);
   return (
     <>
-      <div className='fill-form-container'>
-        <div className='page-title'>
-          <h1>გამოცდილება</h1>
-          <p>{page}/3</p>
+      <div className='experience-container'>
+        <div className='experience-title-container'>
+          <div className='experience-title'>
+            <h1>განათლება</h1>
+            <p>{page}/3</p>
+          </div>
+          <div className='underline'></div>
         </div>
-        <div className='underline'></div>
         {experienceInfo.map((fieldName, index) => {
           return (
             <div className='experience-fieldes-container' key={index}>
@@ -140,4 +142,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;

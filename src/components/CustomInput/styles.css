@@ -1,12 +1,3 @@
-.input-default {
- background: #FFFFFF;
- border: 1px solid #BCBCBC;
- border-radius: 4px;
- height: 48px;
- padding-left: 16px;
- margin: 8px 0;
-}
-
 .user-name-input,
 .user-lastName-input,
 .user-email-input,
@@ -46,5 +37,5 @@
  border-radius: var(--radius);
  color: white;
  cursor: pointer;
-
+ font-weight: normal;
 }

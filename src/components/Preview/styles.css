@@ -7,16 +7,6 @@
  padding-top: 45px;
 }
 
-.private-info-title {
- display: flex;
- justify-content: space-evenly;
- align-items: center;
- padding-bottom: 12px;
-}
-
-.private-info-title h1 {
- width: 100%;
-}
 
 .user-img {
  width: 246px;

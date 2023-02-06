@@ -80,6 +80,7 @@ const Preview = () => {
           </div>
         );
       })}
+      <div className='result-underline'></div>
     </div>
   );
 };

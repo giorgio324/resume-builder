@@ -9,17 +9,14 @@ const CustomInput = ({
   value,
   isTextArea,
   className,
-  labelClassFor,
+  labelClass,
   id,
 }) => {
   return (
     <>
       {isTextArea ? (
         <>
-          <label
-            htmlFor={htmlForName}
-            className={`user-${labelClassFor}-input-label`}
-          >
+          <label htmlFor={htmlForName} className={labelClass}>
             {label}
           </label>
           <textarea
@@ -32,10 +29,7 @@ const CustomInput = ({
         </>
       ) : (
         <>
-          <label
-            htmlFor={htmlForName}
-            className={`user-${labelClassFor}-input-label`}
-          >
+          <label htmlFor={htmlForName} className={labelClass}>
             {label}
           </label>
           <input

@@ -43,7 +43,7 @@ const PrivateInfo = () => {
               value={privateInfo.name}
               placeholder={'ანზორ'}
               type='text'
-              labelClassFor={'name'}
+              labelClass={'name-label'}
             />
             <p>მინიმუმ 2 ასო, ქართული ასოები</p>
           </div>
@@ -56,7 +56,7 @@ const PrivateInfo = () => {
               placeholder={'მუმლაძე'}
               type={'text'}
               value={privateInfo.lastName}
-              labelClassFor={'lastName'}
+              labelClass={'lastName-label'}
             />
             <p>მინიმუმ 2 ასო, ქართული ასოები</p>
           </div>
@@ -70,7 +70,7 @@ const PrivateInfo = () => {
             onChangeFunc={pictureHandler}
             type={'file'}
             id={'file-input'}
-            labelClassFor={'picture'}
+            labelClass={'picture-label'}
           />
         </div>
         <div className='user-about-input-container'>
@@ -82,7 +82,7 @@ const PrivateInfo = () => {
             placeholder={'ზოგადი ინფო შენს შესახებ'}
             type={'text'}
             value={privateInfo.about}
-            labelClassFor={'about'}
+            labelClass={'about-label'}
             isTextArea
           />
         </div>
@@ -95,7 +95,7 @@ const PrivateInfo = () => {
             placeholder={'anzorr666@redberry.ge'}
             type={'email'}
             value={privateInfo.email}
-            labelClassFor={'email'}
+            labelClass={'email-label'}
           />
           <p>უნდა მთავრდებოდეს @redberry.ge-ით </p>
         </div>
@@ -108,7 +108,7 @@ const PrivateInfo = () => {
             placeholder={'+995 551 12 34 56'}
             type={'text'}
             value={privateInfo.phoneNumber}
-            labelClassFor={'phoneNumber'}
+            labelClass={'phoneNumber-label'}
           />
           <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
         </div>

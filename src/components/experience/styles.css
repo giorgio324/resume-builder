@@ -23,6 +23,15 @@
  margin: 31px 0;
 }
 
+.experience-position-input-container {
+ margin-top: 45px;
+ margin-bottom: 30px;
+}
+
+.experience-description-input-container {
+ margin-bottom: 45px;
+}
+
 .experience-position-input,
 .experience-employer-input,
 .experience-description-input,

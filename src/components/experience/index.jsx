@@ -51,7 +51,7 @@ const Experience = () => {
                   }}
                   placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
                   type={'text'}
-                  value={experienceInfo.position}
+                  value={fieldName.position}
                   labelClass={'position-label'}
                 />
                 <p>მინიმუმ 2 სიმბოლო </p>
@@ -66,7 +66,7 @@ const Experience = () => {
                   }}
                   placeholder={'დამსაქმებელი'}
                   type={'text'}
-                  value={experienceInfo.employer}
+                  value={fieldName.employer}
                   labelClass={'employer-label'}
                 />
                 <p>მინიმუმ 2 სიმბოლო </p>
@@ -81,7 +81,7 @@ const Experience = () => {
                       handleOnChange(e, index);
                     }}
                     type={'date'}
-                    value={experienceInfo.startDate}
+                    value={fieldName.startDate}
                     labelClass={'start-date-label'}
                   />
                 </div>
@@ -94,7 +94,7 @@ const Experience = () => {
                       handleOnChange(e, index);
                     }}
                     type={'date'}
-                    value={experienceInfo.endDate}
+                    value={fieldName.endDate}
                     labelClass={'end-date-label'}
                   />
                 </div>
@@ -109,7 +109,7 @@ const Experience = () => {
                   }}
                   placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
                   type={'text'}
-                  value={experienceInfo.description}
+                  value={fieldName.description}
                   labelClass={'description-label'}
                   isTextArea
                 />

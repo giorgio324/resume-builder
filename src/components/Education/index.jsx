@@ -26,7 +26,6 @@ const Education = () => {
     updatedFields[index][name] = value;
     setEducationInfo(updatedFields);
   };
-  console.log(educationInfo);
   return (
     <>
       <div className='fill-form-container'>

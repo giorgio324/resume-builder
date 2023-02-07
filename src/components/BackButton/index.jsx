@@ -6,8 +6,11 @@ import './styles.css';
 const BackButton = () => {
   const {
     setPrivateInfo,
+    privateInfo,
     setExperienceInfo,
+    experienceInfo,
     setEducationInfo,
+    educationInfo,
     setPage,
     defaultPrivateInfo,
     defaultExperienceInfo,
@@ -15,10 +18,11 @@ const BackButton = () => {
   } = useContext(UserContext);
   const resetToDefault = () => {
     setPrivateInfo(defaultPrivateInfo);
-    setExperienceInfo([defaultEducationInfo]);
-    setEducationInfo([defaultExperienceInfo]);
+    setExperienceInfo([defaultExperienceInfo]);
+    setEducationInfo([defaultEducationInfo]);
     setPage(1);
   };
+  console.log(defaultExperienceInfo, defaultEducationInfo);
   return (
     <div className='back-button-container'>
       <Link to='/'>

@@ -27,7 +27,6 @@ const Experience = () => {
     updatedFields[index][name] = value;
     setExperienceInfo(updatedFields);
   };
-  console.log(experienceInfo);
   return (
     <>
       <div className='fill-form-container'>

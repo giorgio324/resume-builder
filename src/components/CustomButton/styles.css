@@ -7,6 +7,16 @@
  margin-top: 75px;
  margin-bottom: 40px;
  border-radius: var(--radius);
+ transition: var(--transition);
+ cursor: pointer;
+}
+
+.navigation-btn:hover {
+ background: #7949FF;
+}
+
+.navigation-btn:active {
+ background: #512FAF;
 }
 
 /* add info btn */
@@ -15,4 +25,5 @@
  padding: 14px 21px;
  background: #62A1EB;
  color: white;
+ cursor: pointer;
 }

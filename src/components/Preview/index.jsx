@@ -102,7 +102,9 @@ const Preview = () => {
                   <div className='result-education-institute'>
                     <p>{fields.institute}</p>
                   </div>
-                  <div className='result-education-degree'>{fields.degree}</div>
+                  <div className='result-education-degree'>
+                    <p>{fields.degree}</p>
+                  </div>
                 </div>
                 <div className='result-education-endDate'>
                   <p>{fields.due_date}</p>

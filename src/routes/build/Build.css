@@ -1,0 +1,7 @@
+.resume-finished-page {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100vw;
+ margin-top: 45px;
+}

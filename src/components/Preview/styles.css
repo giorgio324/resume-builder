@@ -1,9 +1,9 @@
 /* result-container items */
 .result-container {
  position: relative;
- width: 85vw;
+ width: 822px;
+ min-height: 1080px;
  padding: 0 80px;
- min-height: 100vh;
  padding-bottom: 8rem;
  background: var(--white);
  padding-top: 45px;
@@ -138,4 +138,13 @@
  line-height: 22px;
  margin-top: 16px;
  padding-right: 5rem;
+}
+
+
+.result-finish {
+ border: 0.8px solid #000000;
+}
+
+.result-experience-container {
+ word-break: break-all;
 }

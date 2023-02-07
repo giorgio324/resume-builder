@@ -12,7 +12,11 @@ const Preview = () => {
     useContext(UserContext);
 
   return (
-    <div className='result-container'>
+    <div
+      className={
+        page === 4 ? 'result-container result-finish' : 'result-container'
+      }
+    >
       <img src={watermark} alt='' className='watermark' />
       <div className='private-info-result-container'>
         <div className='result-info'>
@@ -55,52 +59,61 @@ const Preview = () => {
       </div>
       {page > 1 ? <div className='result-underline'></div> : ''}
       {page > 1 ? <h2 className='result-title with-desc'>გამოცდილება</h2> : ''}
-      {experienceInfo.map((fields, index) => {
-        return (
-          <div className='result-experience-container' key={index}>
-            <div className='result-job-container'>
-              <div className='result-experience-position'>
-                <p>{fields.position}</p>
+      {page > 1
+        ? experienceInfo.map((fields, index) => {
+            return (
+              <div className='result-experience-container' key={index}>
+                <div className='result-job-container'>
+                  <div className='result-experience-position'>
+                    <p>{fields.position}</p>
+                  </div>
+                  <div className='result-employer-position'>
+                    {fields.employer}
+                  </div>
+                </div>
+                <div className='result-duration-container'>
+                  <div className='result-experience-startDate'>
+                    <p>{fields.startDate}</p>
+                  </div>
+                  {fields.startDate && fields.endDate && (
+                    <p className='dash'>-</p>
+                  )}
+                  <div className='result-experience-endDate'>
+                    <p>{fields.endDate}</p>
+                  </div>
+                </div>
+                <div className='result-description-container'>
+                  <div className='result-experience-description'>
+                    <p>{fields.description}</p>
+                  </div>
+                </div>
               </div>
-              <div className='result-employer-position'>{fields.employer}</div>
-            </div>
-            <div className='result-duration-container'>
-              <div className='result-experience-startDate'>
-                <p>{fields.startDate}</p>
-              </div>
-              {fields.startDate && fields.endDate && <p className='dash'>-</p>}
-              <div className='result-experience-endDate'>
-                <p>{fields.endDate}</p>
-              </div>
-            </div>
-            <div className='result-description-container'>
-              <div className='result-experience-description'>
-                <p>{fields.description}</p>
-              </div>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })
+        : ''}
+
       {page > 2 ? <div className='result-underline'></div> : ''}
       {page > 2 ? <h2 className='result-title with-desc'>განათლება</h2> : ''}
-      {educationInfo.map((fields, index) => {
-        return (
-          <div className='result-education-container' key={index}>
-            <div className='result-learn-container'>
-              <div className='result-education-institute'>
-                <p>{fields.institute}</p>
+      {page > 2
+        ? educationInfo.map((fields, index) => {
+            return (
+              <div className='result-education-container' key={index}>
+                <div className='result-learn-container'>
+                  <div className='result-education-institute'>
+                    <p>{fields.institute}</p>
+                  </div>
+                  <div className='result-education-degree'>{fields.degree}</div>
+                </div>
+                <div className='result-education-endDate'>
+                  <p>{fields.due_date}</p>
+                </div>
+                <div className='result-education-description'>
+                  <p>{fields.description}</p>
+                </div>
               </div>
-              <div className='result-education-degree'>{fields.degree}</div>
-            </div>
-            <div className='result-education-endDate'>
-              <p>{fields.due_date}</p>
-            </div>
-            <div className='result-education-description'>
-              <p>{fields.description}</p>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })
+        : ''}
     </div>
   );
 };

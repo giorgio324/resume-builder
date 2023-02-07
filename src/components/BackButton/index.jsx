@@ -13,16 +13,29 @@ const BackButton = () => {
     educationInfo,
     setPage,
     defaultPrivateInfo,
-    defaultExperienceInfo,
-    defaultEducationInfo,
   } = useContext(UserContext);
   const resetToDefault = () => {
     setPrivateInfo(defaultPrivateInfo);
-    setExperienceInfo([defaultExperienceInfo]);
-    setEducationInfo([defaultEducationInfo]);
+    setExperienceInfo([
+      {
+        position: '',
+        employer: '',
+        startDate: '',
+        endDate: '',
+        description: '',
+      },
+    ]);
+    setEducationInfo([
+      {
+        institute: '',
+        degree: '',
+        due_date: '',
+        description: '',
+      },
+    ]);
     setPage(1);
   };
-  console.log(defaultExperienceInfo, defaultEducationInfo);
+  console.log(experienceInfo, educationInfo);
   return (
     <div className='back-button-container'>
       <Link to='/'>

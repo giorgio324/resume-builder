@@ -11,16 +11,25 @@ const Resume = () => {
   return (
     <ResumeLayout>
       {page === 1 ? (
-        <PrivateInfo />
+        <>
+          <PrivateInfo />
+          <Preview />
+        </>
       ) : page === 2 ? (
-        <Experience />
+        <>
+          <Experience />
+          <Preview />
+        </>
       ) : page === 3 ? (
-        <Education />
+        <>
+          <Education />
+          <Preview />
+        </>
       ) : (
-        <h1>page4</h1>
+        <div className='resume-finished-page'>
+          <Preview />
+        </div>
       )}
-
-      <Preview />
     </ResumeLayout>
   );
 };

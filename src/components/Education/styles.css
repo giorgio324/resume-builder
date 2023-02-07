@@ -13,3 +13,12 @@
 .education-description-input-container {
  margin-top: 34px;
 }
+
+.degrees-select {
+ background: var(--white);
+ padding: 13px 16px;
+ margin: 8px 0;
+ border-radius: 4px;
+ color: var(--clr-input-placeholder);
+ width: 100%;
+}

@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../../context/global.context';
-import { useContext } from 'react';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
 const Education = () => {
   const { educationInfo, setEducationInfo, page, setPage } =
     useContext(UserContext);
-
+  const [degreeList, setDegreeList] = useState([]);
   const handleAddField = (e) => {
     setEducationInfo((prevInfo) => [
       ...prevInfo,
@@ -26,6 +25,21 @@ const Education = () => {
     updatedFields[index][name] = value;
     setEducationInfo(updatedFields);
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          'https://resume.redberryinternship.ge/api/degrees'
+        );
+        const responseData = await response.json();
+        setDegreeList(responseData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className='fill-form-container'>
@@ -56,18 +70,33 @@ const Education = () => {
 
               <div className='education-degree-container'>
                 <div className='education-degree-input-container'>
-                  <CustomInput
-                    className={'education-degree-input'}
-                    htmlForName={'degree'}
-                    label={'ხარისხი'}
-                    onChangeFunc={(e) => {
+                  <label htmlFor='degrees'>აირჩიეთ ხარისხი</label>
+                  {/* todo fix this */}
+                  <select
+                    id='degrees'
+                    name='degree'
+                    className='degrees-select'
+                    value={''}
+                    onChange={(e) => {
                       handleOnChange(e, index);
                     }}
-                    placeholder={'აირჩიეთ ხარისხი'}
-                    type={'dropdown'}
-                    value={fieldName.degree}
-                    labelClass={'degree-label'}
-                  />
+                  >
+                    <option
+                      value=''
+                      className='select-option'
+                      disabled
+                      selected
+                    >
+                      აირჩიეთ ხარისხი
+                    </option>
+                    {degreeList.map((degree) => {
+                      return (
+                        <option value={degree.title} key={degree.id}>
+                          {degree.title}
+                        </option>
+                      );
+                    })}
+                  </select>
                 </div>
                 <div className='education-endDate-input-container'>
                   <CustomInput

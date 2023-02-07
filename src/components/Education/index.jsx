@@ -4,18 +4,17 @@ import { useContext } from 'react';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
-const Experience = () => {
-  const { experienceInfo, setExperienceInfo, page, setPage } =
+const Education = () => {
+  const { educationInfo, setEducationInfo, page, setPage } =
     useContext(UserContext);
 
   const handleAddField = (e) => {
-    setExperienceInfo((prevInfo) => [
+    setEducationInfo((prevInfo) => [
       ...prevInfo,
       {
-        position: '',
-        employer: '',
-        startDate: '',
-        endDate: '',
+        institute: '',
+        degree: '',
+        due_date: '',
         description: '',
       },
     ]);
@@ -23,11 +22,11 @@ const Experience = () => {
   const handleOnChange = (e, index) => {
     const value = e.target.value;
     const name = e.target.name;
-    const updatedFields = [...experienceInfo];
+    const updatedFields = [...educationInfo];
     updatedFields[index][name] = value;
-    setExperienceInfo(updatedFields);
+    setEducationInfo(updatedFields);
   };
-  console.log(experienceInfo);
+  console.log(educationInfo);
   return (
     <>
       <div className='fill-form-container'>
@@ -36,7 +35,8 @@ const Experience = () => {
           <p>{page}/3</p>
         </div>
         <div className='underline'></div>
-        {experienceInfo.map((fieldName, index) => {
+        {/* todo change values and onchange func */}
+        {educationInfo.map((fieldName, index) => {
           return (
             <div className='fieldes-container' key={index}>
               <div className='education-institute-input-container'>
@@ -49,63 +49,50 @@ const Experience = () => {
                   }}
                   placeholder={'სასწავლებელი'}
                   type={'text'}
-                  value={fieldName.position}
+                  value={fieldName.institute}
                   labelClass={'institute-label'}
                 />
                 <p className='hint'>მინიმუმ 2 სიმბოლო </p>
               </div>
-              <div className='experience-employer-input-container'>
-                <CustomInput
-                  className={' experience-employer-input'}
-                  htmlForName={'employer'}
-                  label={'დამსაქმებელი'}
-                  onChangeFunc={(e) => {
-                    handleOnChange(e, index);
-                  }}
-                  placeholder={'დამსაქმებელი'}
-                  type={'text'}
-                  value={fieldName.employer}
-                  labelClass={'employer-label'}
-                />
-                <p className='hint'>მინიმუმ 2 სიმბოლო </p>
-              </div>
-              <div className='experience-dates-container'>
-                <div className='user-start-date-input-container'>
+
+              <div className='education-degree-container'>
+                <div className='education-degree-input-container'>
                   <CustomInput
-                    className={' user-start-date-input'}
-                    htmlForName={'startDate'}
-                    label={'დაწყების რიცხვი'}
+                    className={'education-degree-input'}
+                    htmlForName={'degree'}
+                    label={'ხარისხი'}
                     onChangeFunc={(e) => {
                       handleOnChange(e, index);
                     }}
-                    type={'date'}
-                    value={fieldName.startDate}
-                    labelClass={'start-date-label'}
+                    placeholder={'აირჩიეთ ხარისხი'}
+                    type={'dropdown'}
+                    value={fieldName.degree}
+                    labelClass={'degree-label'}
                   />
                 </div>
-                <div className='user-end-date-input-container'>
+                <div className='education-endDate-input-container'>
                   <CustomInput
-                    className={' user-end-date-input'}
-                    htmlForName={'endDate'}
+                    className={'education-endDate-input'}
+                    htmlForName={'due_date'}
                     label={'დამთავრების რიცხვი'}
                     onChangeFunc={(e) => {
                       handleOnChange(e, index);
                     }}
                     type={'date'}
-                    value={fieldName.endDate}
-                    labelClass={'end-date-label'}
+                    value={fieldName.due_date}
+                    labelClass={'education-endDate-label'}
                   />
                 </div>
               </div>
-              <div className='experience-description-input-container'>
+              <div className='education-description-input-container'>
                 <CustomInput
-                  className={' experience-description-input'}
+                  className={'education-description-input'}
                   htmlForName={'description'}
                   label={'აღწერა'}
                   onChangeFunc={(e) => {
                     handleOnChange(e, index);
                   }}
-                  placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
+                  placeholder={'განათლების აღწერა'}
                   type={'text'}
                   value={fieldName.description}
                   labelClass={'description-label'}
@@ -119,7 +106,7 @@ const Experience = () => {
         <div className='add-more-experience-button-container'>
           <CustomButton
             className={'add-more'}
-            buttonText={'მეტი გამოცდილების დამატება'}
+            buttonText={'სხვა სასწავლებლის დამატება'}
             onClickFunc={handleAddField}
           ></CustomButton>
         </div>
@@ -140,4 +127,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;

@@ -3,6 +3,7 @@
  position: relative;
  width: 85vw;
  padding: 0 80px;
+ padding-bottom: 8rem;
  background: var(--white);
  padding-top: 45px;
 }
@@ -47,10 +48,7 @@
 
 }
 
-.about-decoration {
- color: var(--clr-primary);
- margin-bottom: 10px;
-}
+
 
 .user-about-result-container {
  word-break: break-all;
@@ -71,7 +69,7 @@
  position: absolute;
  bottom: 0;
  left: 0;
- transform: translate(calc(80px + 50%), -100%);
+ transform: translate(calc(80px), -80%);
 }
 
 /* preview underline */
@@ -80,16 +78,26 @@
  margin-top: 15px;
 }
 
-.result-experience-title {
+.result-title {
  color: var(--clr-primary);
  font-size: 18px;
  text-align: start;
  display: block;
  margin-top: 24px;
+ margin-bottom: 15px;
+}
 
+.with-desc {
+ margin-bottom: 0 !important;
 }
 
 .result-job-container {
+ display: flex;
+ font-weight: bold;
+ margin-top: 15px;
+}
+
+.result-learn-container {
  display: flex;
  font-weight: bold;
  margin-top: 15px;
@@ -113,4 +121,20 @@
  width: 100%;
  line-height: 22px;
  margin-top: 16px;
+}
+
+.result-education-degree {
+ margin-left: 16px;
+}
+
+.result-education-endDate {
+ margin-top: 7px;
+ color: #909090;
+}
+
+.result-education-description {
+ width: 100%;
+ line-height: 22px;
+ margin-top: 16px;
+ padding-right: 5rem;
 }

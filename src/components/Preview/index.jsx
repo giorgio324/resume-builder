@@ -8,7 +8,8 @@ import { UserContext } from '../../context/global.context';
 
 const Preview = () => {
   // todo display experience page content
-  const { privateInfo, experienceInfo, page } = useContext(UserContext);
+  const { privateInfo, experienceInfo, educationInfo, page } =
+    useContext(UserContext);
 
   return (
     <div className='result-container'>
@@ -40,7 +41,7 @@ const Preview = () => {
           <div className='user-about-result-container'>
             {privateInfo.about && (
               <div>
-                <h3 className='about-decoration'>ჩემს შესახებ</h3>
+                <h3 className='result-title'>ჩემ შესახებ</h3>
                 <p>{privateInfo.about}</p>
               </div>
             )}
@@ -53,7 +54,7 @@ const Preview = () => {
         </div>
       </div>
       {page > 1 ? <div className='result-underline'></div> : ''}
-      {page > 1 ? <h2 className='result-experience-title'>გამოცდილება</h2> : ''}
+      {page > 1 ? <h2 className='result-title with-desc'>გამოცდილება</h2> : ''}
       {experienceInfo.map((fields, index) => {
         return (
           <div className='result-experience-container' key={index}>
@@ -81,6 +82,25 @@ const Preview = () => {
         );
       })}
       {page > 2 ? <div className='result-underline'></div> : ''}
+      {page > 2 ? <h2 className='result-title with-desc'>განათლება</h2> : ''}
+      {educationInfo.map((fields, index) => {
+        return (
+          <div className='result-education-container' key={index}>
+            <div className='result-learn-container'>
+              <div className='result-education-institute'>
+                <p>{fields.institute}</p>
+              </div>
+              <div className='result-education-degree'>{fields.degree}</div>
+            </div>
+            <div className='result-education-endDate'>
+              <p>{fields.due_date}</p>
+            </div>
+            <div className='result-education-description'>
+              <p>{fields.description}</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

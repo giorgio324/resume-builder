@@ -1,0 +1,15 @@
+.education-degree-container {
+ display: flex;
+ width: 100%;
+ gap: 56px;
+ margin-top: 31px;
+}
+
+.education-degree-input-container,
+.education-endDate-input-container {
+ width: 100%;
+}
+
+.education-description-input-container {
+ margin-top: 34px;
+}

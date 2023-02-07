@@ -4,10 +4,19 @@ import { UserContext } from '../../context/global.context';
 import arrow from '../../images/back-arrow.svg';
 import './styles.css';
 const BackButton = () => {
-  const { defaultPrivateInfo, setPrivateInfo, setPage } =
-    useContext(UserContext);
+  const {
+    setPrivateInfo,
+    setExperienceInfo,
+    setEducationInfo,
+    setPage,
+    defaultPrivateInfo,
+    defaultExperienceInfo,
+    defaultEducationInfo,
+  } = useContext(UserContext);
   const resetToDefault = () => {
     setPrivateInfo(defaultPrivateInfo);
+    setExperienceInfo([defaultEducationInfo]);
+    setEducationInfo([defaultExperienceInfo]);
     setPage(1);
   };
   return (

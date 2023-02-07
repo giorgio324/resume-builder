@@ -16,9 +16,16 @@ export const defaultExperienceInfo = {
   endDate: '',
   description: '',
 };
+export const defaultEducationInfo = {
+  institute: '',
+  degree: '',
+  due_date: '',
+  description: '',
+};
 export const UserContextProvider = ({ children }) => {
   const [privateInfo, setPrivateInfo] = useState(defaultPrivateInfo);
   const [experienceInfo, setExperienceInfo] = useState([defaultExperienceInfo]);
+  const [educationInfo, setEducationInfo] = useState([defaultEducationInfo]);
   const [page, setPage] = useState(1);
 
   return (
@@ -28,9 +35,13 @@ export const UserContextProvider = ({ children }) => {
         setExperienceInfo,
         privateInfo,
         setPrivateInfo,
+        educationInfo,
+        setEducationInfo,
         page,
         setPage,
         defaultPrivateInfo,
+        defaultExperienceInfo,
+        defaultEducationInfo,
       }}
     >
       {children}

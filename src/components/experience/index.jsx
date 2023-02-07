@@ -38,7 +38,7 @@ const Experience = () => {
         <div className='underline'></div>
         {experienceInfo.map((fieldName, index) => {
           return (
-            <div className='experience-fieldes-container' key={index}>
+            <div className='fieldes-container' key={index}>
               <div className='experience-position-input-container'>
                 <CustomInput
                   className={' experience-position-input'}
@@ -112,7 +112,7 @@ const Experience = () => {
                   isTextArea
                 />
               </div>
-              <div className='result-underline'></div>
+              <div className='result-underline input-line'></div>
             </div>
           );
         })}

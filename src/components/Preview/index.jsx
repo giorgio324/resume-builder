@@ -80,7 +80,7 @@ const Preview = () => {
           </div>
         );
       })}
-      <div className='result-underline'></div>
+      {page > 2 ? <div className='result-underline'></div> : ''}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
-const Education = () => {
+const Experience = () => {
   const { experienceInfo, setExperienceInfo, page, setPage } =
     useContext(UserContext);
 
@@ -30,29 +30,27 @@ const Education = () => {
   console.log(experienceInfo);
   return (
     <>
-      <div className='experience-container'>
-        <div className='experience-title-container'>
-          <div className='experience-title'>
-            <h1>განათლება</h1>
-            <p>{page}/3</p>
-          </div>
-          <div className='underline'></div>
+      <div className='fill-form-container'>
+        <div className='page-title'>
+          <h1>გამოცდილება</h1>
+          <p>{page}/3</p>
         </div>
+        <div className='underline'></div>
         {experienceInfo.map((fieldName, index) => {
           return (
-            <div className='experience-fieldes-container' key={index}>
-              <div className='experience-position-input-container'>
+            <div className='fieldes-container' key={index}>
+              <div className='education-institute-input-container'>
                 <CustomInput
-                  className={' experience-position-input'}
-                  htmlForName={'position'}
-                  label={'თანამდებობა'}
+                  className={'education-institute-input'}
+                  htmlForName={'institute'}
+                  label={'სასწავლებელი'}
                   onChangeFunc={(e) => {
                     handleOnChange(e, index);
                   }}
-                  placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
+                  placeholder={'სასწავლებელი'}
                   type={'text'}
                   value={fieldName.position}
-                  labelClass={'position-label'}
+                  labelClass={'institute-label'}
                 />
                 <p className='hint'>მინიმუმ 2 სიმბოლო </p>
               </div>
@@ -114,7 +112,7 @@ const Education = () => {
                   isTextArea
                 />
               </div>
-              <div className='result-underline'></div>
+              <div className='result-underline input-line'></div>
             </div>
           );
         })}
@@ -142,4 +140,4 @@ const Education = () => {
   );
 };
 
-export default Education;
+export default Experience;

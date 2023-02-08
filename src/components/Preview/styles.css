@@ -36,38 +36,12 @@
  margin-bottom: 0 !important;
 }
 
-.result-job-container {
- display: flex;
- font-weight: bold;
- margin-top: 15px;
-}
-
 .result-learn-container {
  display: flex;
  font-weight: bold;
  align-items: center;
  justify-content: flex-start;
  margin-top: 15px;
-}
-
-.result-employer-position {
- margin-left: 7px;
-}
-
-.result-duration-container {
- color: #909090;
- display: flex;
- margin-top: 7px;
-}
-
-.dash {
- margin: 0 5px;
-}
-
-.result-description-container {
- width: 100%;
- line-height: 22px;
- margin-top: 16px;
 }
 
 .result-education-degree {

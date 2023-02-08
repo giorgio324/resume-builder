@@ -26,6 +26,12 @@ export const UserContextProvider = ({ children }) => {
   const [privateInfo, setPrivateInfo] = useState(defaultPrivateInfo);
   const [experienceInfo, setExperienceInfo] = useState([defaultExperienceInfo]);
   const [educationInfo, setEducationInfo] = useState([defaultEducationInfo]);
+  const finalInfo = {
+    ...privateInfo,
+    experienceInfo,
+    educationInfo,
+  };
+  console.table(finalInfo);
   const [page, setPage] = useState(1);
 
   return (

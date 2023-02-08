@@ -6,11 +6,8 @@ import './styles.css';
 const BackButton = () => {
   const {
     setPrivateInfo,
-    privateInfo,
     setExperienceInfo,
-    experienceInfo,
     setEducationInfo,
-    educationInfo,
     setPage,
     defaultPrivateInfo,
   } = useContext(UserContext);
@@ -35,7 +32,6 @@ const BackButton = () => {
     ]);
     setPage(1);
   };
-  console.log(experienceInfo, educationInfo);
   return (
     <div className='back-button-container'>
       <Link to='/'>

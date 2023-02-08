@@ -4,7 +4,7 @@ Fonts
 
 @font-face {
  font-family: "HelveticaNeue";
- src: url(fonts/HelveticaNeue.ttc) format('truetype');
+ src: url("/src/fonts/HelveticaNeue.ttc") format("TTC");
 }
 
 /*
@@ -63,6 +63,7 @@ input {
  border: 1px solid #BCBCBC;
  border-radius: 4px;
  padding: 12px 0;
+ font-weight: 600;
  caret-color: #6499FF;
  padding-left: 16px;
  margin: 8px 0;
@@ -71,6 +72,7 @@ input {
 
 input::placeholder {
  font-family: var(--ff-primary);
+ font-weight: 400;
 }
 
 label {
@@ -80,6 +82,7 @@ label {
 
 ::placeholder {
  color: var(--clr-input-placeholder);
+ font-style: 400;
 }
 
 textarea {
@@ -93,7 +96,7 @@ textarea {
  padding-top: 8px;
  margin-top: 8px;
  font-size: 16px;
- font-weight: bold;
+ font-weight: 500;
  font-family: var(--ff-primary);
  color: var(--clr-offblack);
  background-color: var(--white);
@@ -101,13 +104,14 @@ textarea {
 
 textarea::placeholder {
  font-size: 16px;
+ font-weight: 400;
 }
 
 input[type="text"],
 input[type='email'],
 select {
  font-size: 16px;
- font-weight: bold;
+ font-weight: 500;
  font-family: var(--ff-primary);
  color: var(--clr-offblack);
  background-color: var(--white);
@@ -115,6 +119,7 @@ select {
 
 input[type="date"] {
  font-size: 16px;
+ font-weight: 400;
  font-family: var(--ff-primary);
  color: var(--black);
  background-color: var(--white);
@@ -132,6 +137,11 @@ textarea:focus {
  display: flex;
  flex-direction: row;
  background: var(--clr-grey);
+}
+
+.experience-position-input,
+.experience-employer-input {
+ font-weight: 600 !important;
 }
 
 /* private info */

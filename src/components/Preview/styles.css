@@ -52,7 +52,7 @@
 
 
 .user-about-result-container {
- word-break: break-all;
+ word-break: normal;
 }
 
 .user-email,
@@ -101,6 +101,8 @@
 .result-learn-container {
  display: flex;
  font-weight: bold;
+ align-items: center;
+ justify-content: flex-start;
  margin-top: 15px;
 }
 
@@ -115,7 +117,7 @@
 }
 
 .dash {
- margin: 0 2px;
+ margin: 0 5px;
 }
 
 .result-description-container {
@@ -146,5 +148,7 @@
 }
 
 .result-experience-container {
- word-break: break-all;
+ word-break: normal;
 }
+
+.result-education-institute {}

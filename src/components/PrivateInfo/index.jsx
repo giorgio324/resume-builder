@@ -53,7 +53,7 @@ const PrivateInfo = () => {
                 onChangeFunc={handleChange}
                 placeholder={'მუმლაძე'}
                 type={'text'}
-                value={inputsInfo.lastName}
+                value={inputsInfo.surname}
                 labelClass={'lastName-label'}
               />
               <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
@@ -79,7 +79,7 @@ const PrivateInfo = () => {
               onChangeFunc={handleChange}
               placeholder={'ზოგადი ინფო შენს შესახებ'}
               type={'text'}
-              value={inputsInfo.about}
+              value={inputsInfo.about_me}
               labelClass={'about-label'}
               isTextArea
             />
@@ -105,7 +105,7 @@ const PrivateInfo = () => {
               onChangeFunc={handleChange}
               placeholder={'+995 551 12 34 56'}
               type={'text'}
-              value={inputsInfo.phoneNumber}
+              value={inputsInfo.phone_number}
               labelClass={'phoneNumber-label'}
             />
             <p className='hint'>

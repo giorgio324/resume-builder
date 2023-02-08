@@ -27,10 +27,23 @@ export const defaultValues = {
   ],
 };
 export const UserContextProvider = ({ children }) => {
-  const [inputsInfo, setInputsInfo] = useState(defaultValues);
-  const [page, setPage] = useState(1);
+  const [inputsInfo, setInputsInfo] = useState(() => {
+    const storedState = localStorage.getItem('inputValues');
+    return storedState ? JSON.parse(storedState) : defaultValues;
+  });
+  const [page, setPage] = useState(() => {
+    const storedPage = localStorage.getItem('pageNumber');
+    return storedPage ? JSON.parse(storedPage) : 1;
+  });
   console.log(inputsInfo);
   // todo add localsorage and store inputsInfo on each edit
+
+  useEffect(() => {
+    localStorage.setItem('inputValues', JSON.stringify(inputsInfo));
+  }, [inputsInfo]);
+  useEffect(() => {
+    localStorage.setItem('pageNumber', JSON.stringify(page));
+  }, [page]);
   return (
     <UserContext.Provider
       value={{

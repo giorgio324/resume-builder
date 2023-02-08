@@ -84,6 +84,7 @@ const Education = () => {
                     onChange={(e) => {
                       handleOnChange(e, index);
                     }}
+                    value={fieldName.degree}
                   >
                     <option
                       value=''
@@ -95,11 +96,7 @@ const Education = () => {
                     </option>
                     {degreeList.map((degree) => {
                       return (
-                        <option
-                          className='degree-options'
-                          value={degree.title}
-                          key={degree.id}
-                        >
+                        <option className='degree-options' key={degree.id}>
                           {degree.title}
                         </option>
                       );

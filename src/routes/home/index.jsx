@@ -14,7 +14,7 @@ function Home() {
         </div>
       </div>
       <div className='button-container'>
-        <Link to='/build'>
+        <Link to='/resume'>
           <button className='add-resume-btn'>რეზიუმეს დამატება</button>
         </Link>
       </div>

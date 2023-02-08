@@ -1,4 +1,4 @@
-import './Build.css';
+import './styles.css';
 import ResumeLayout from '../../Layouts/ResumeLayout';
 import Preview from '../../components/Preview';
 import PrivateInfo from '../../components/PrivateInfo';

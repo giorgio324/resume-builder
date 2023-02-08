@@ -1,7 +1,7 @@
 import logoTitle from '../../images/logo-title.svg';
 import logoAgency from '../../images/logo-agency.svg';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import './styles.css';
 function Home() {
   return (
     <section className='create-resume-container'>

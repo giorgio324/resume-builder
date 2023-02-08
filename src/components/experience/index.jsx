@@ -5,27 +5,32 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
 const Experience = () => {
-  const { experienceInfo, setExperienceInfo, page, setPage } =
-    useContext(UserContext);
+  const { setInputsInfo, inputsInfo, page, setPage } = useContext(UserContext);
 
   const handleAddField = (e) => {
-    setExperienceInfo((prevInfo) => [
-      ...prevInfo,
-      {
-        position: '',
-        employer: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-      },
-    ]);
+    setInputsInfo({
+      ...inputsInfo,
+      experiences: [
+        ...inputsInfo.experiences,
+        {
+          position: '',
+          employer: '',
+          start_date: '',
+          due_date: '',
+          description: '',
+        },
+      ],
+    });
   };
   const handleOnChange = (e, index) => {
     const value = e.target.value;
     const name = e.target.name;
-    const updatedFields = [...experienceInfo];
-    updatedFields[index][name] = value;
-    setExperienceInfo(updatedFields);
+    const updatedExperiences = [...inputsInfo.experiences];
+    updatedExperiences[index][name] = value;
+    setInputsInfo({
+      ...inputsInfo,
+      experiences: updatedExperiences,
+    });
   };
   return (
     <>
@@ -35,7 +40,7 @@ const Experience = () => {
           <p>{page}/3</p>
         </div>
         <div className='underline'></div>
-        {experienceInfo.map((fieldName, index) => {
+        {inputsInfo.experiences.map((fieldName, index) => {
           return (
             <div className='fieldes-container' key={index}>
               <div className='experience-position-input-container'>
@@ -72,26 +77,26 @@ const Experience = () => {
                 <div className='user-start-date-input-container'>
                   <CustomInput
                     className={' user-start-date-input'}
-                    htmlForName={'startDate'}
+                    htmlForName={'start_date'}
                     label={'დაწყების რიცხვი'}
                     onChangeFunc={(e) => {
                       handleOnChange(e, index);
                     }}
                     type={'date'}
-                    value={fieldName.startDate}
+                    value={fieldName.start_date}
                     labelClass={'start-date-label'}
                   />
                 </div>
                 <div className='user-end-date-input-container'>
                   <CustomInput
                     className={' user-end-date-input'}
-                    htmlForName={'endDate'}
+                    htmlForName={'due_date'}
                     label={'დამთავრების რიცხვი'}
                     onChangeFunc={(e) => {
                       handleOnChange(e, index);
                     }}
                     type={'date'}
-                    value={fieldName.endDate}
+                    value={fieldName.due_date}
                     labelClass={'end-date-label'}
                   />
                 </div>

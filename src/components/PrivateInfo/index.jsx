@@ -6,19 +6,18 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 
 const PrivateInfo = () => {
-  const { privateInfo, setPrivateInfo, page, setPage } =
-    useContext(UserContext);
+  const { page, setPage, inputsInfo, setInputsInfo } = useContext(UserContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setPrivateInfo((prevInfo) => {
+    setInputsInfo((prevInfo) => {
       return { ...prevInfo, [name]: value };
     });
   };
 
   const pictureHandler = (e) => {
-    setPrivateInfo((prevInfo) => ({
+    setInputsInfo((prevInfo) => ({
       ...prevInfo,
       image: URL.createObjectURL(e.target.files[0]),
     }));
@@ -39,7 +38,7 @@ const PrivateInfo = () => {
                 htmlForName='name'
                 label={'სახელი'}
                 onChangeFunc={handleChange}
-                value={privateInfo.name}
+                value={inputsInfo.name}
                 placeholder={'ანზორ'}
                 type='text'
                 labelClass={'name-label'}
@@ -49,12 +48,12 @@ const PrivateInfo = () => {
             <div className='user-lastName-input-container'>
               <CustomInput
                 className={' user-lastName-input'}
-                htmlForName={'lastName'}
+                htmlForName={'surname'}
                 label={'გვარი'}
                 onChangeFunc={handleChange}
                 placeholder={'მუმლაძე'}
                 type={'text'}
-                value={privateInfo.lastName}
+                value={inputsInfo.lastName}
                 labelClass={'lastName-label'}
               />
               <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
@@ -75,12 +74,12 @@ const PrivateInfo = () => {
           <div className='user-about-input-container'>
             <CustomInput
               className={' user-about-input'}
-              htmlForName={'about'}
+              htmlForName={'about_me'}
               label={'ჩემ შესახებ (არასავალდებულო)'}
               onChangeFunc={handleChange}
               placeholder={'ზოგადი ინფო შენს შესახებ'}
               type={'text'}
-              value={privateInfo.about}
+              value={inputsInfo.about}
               labelClass={'about-label'}
               isTextArea
             />
@@ -93,7 +92,7 @@ const PrivateInfo = () => {
               onChangeFunc={handleChange}
               placeholder={'anzorr666@redberry.ge'}
               type={'email'}
-              value={privateInfo.email}
+              value={inputsInfo.email}
               labelClass={'email-label'}
             />
             <p className='hint'>უნდა მთავრდებოდეს @redberry.ge-ით </p>
@@ -101,12 +100,12 @@ const PrivateInfo = () => {
           <div className='user-number-input-container'>
             <CustomInput
               className={' phone-input'}
-              htmlForName={'phoneNumber'}
+              htmlForName={'phone_number'}
               label={'მობილურის ნომერი'}
               onChangeFunc={handleChange}
               placeholder={'+995 551 12 34 56'}
               type={'text'}
-              value={privateInfo.phoneNumber}
+              value={inputsInfo.phoneNumber}
               labelClass={'phoneNumber-label'}
             />
             <p className='hint'>

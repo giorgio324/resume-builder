@@ -4,28 +4,33 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
 const Education = () => {
-  const { educationInfo, setEducationInfo, page, setPage } =
-    useContext(UserContext);
+  const { setInputsInfo, inputsInfo, page, setPage } = useContext(UserContext);
   const [degreeList, setDegreeList] = useState([]);
-  const handleAddField = (e) => {
-    setEducationInfo((prevInfo) => [
-      ...prevInfo,
-      {
-        institute: '',
-        degree: '',
-        due_date: '',
-        description: '',
-      },
-    ]);
+  const handleAddField = () => {
+    setInputsInfo({
+      ...inputsInfo,
+      educations: [
+        ...inputsInfo.educations,
+        {
+          institute: '',
+          degree: '',
+          due_date: '',
+          description: '',
+        },
+      ],
+    });
   };
   const handleOnChange = (e, index) => {
     const value = e.target.value;
     const name = e.target.name;
-    const updatedFields = [...educationInfo];
-    updatedFields[index][name] = value;
-    setEducationInfo(updatedFields);
+    const updatedEducations = [...inputsInfo.educations];
+    updatedEducations[index][name] = value;
+    setInputsInfo({
+      ...inputsInfo,
+      educations: updatedEducations,
+    });
   };
-
+  // fetch degree list from server
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,12 +49,12 @@ const Education = () => {
     <>
       <div className='fill-form-container'>
         <div className='page-title'>
-          <h1>გამოცდილება</h1>
+          <h1>განათლება</h1>
           <p>{page}/3</p>
         </div>
         <div className='underline'></div>
         {/* todo change values and onchange func */}
-        {educationInfo.map((fieldName, index) => {
+        {inputsInfo.educations.map((fieldName, index) => {
           return (
             <div className='fieldes-container' key={index}>
               <div className='education-institute-input-container'>

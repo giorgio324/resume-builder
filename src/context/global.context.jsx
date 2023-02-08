@@ -1,53 +1,43 @@
-import { useState, createContext } from 'react';
-
+import { useState, createContext, useEffect } from 'react';
 export const UserContext = createContext();
-export const defaultPrivateInfo = {
+
+export const defaultValues = {
   name: '',
-  lastName: '',
-  about: '',
+  surname: '',
+  about_me: '',
   email: '',
-  phoneNumber: '',
+  phone_number: '',
   image: '',
-};
-export const defaultExperienceInfo = {
-  position: '',
-  employer: '',
-  startDate: '',
-  endDate: '',
-  description: '',
-};
-export const defaultEducationInfo = {
-  institute: '',
-  degree: '',
-  due_date: '',
-  description: '',
+  experiences: [
+    {
+      position: '',
+      employer: '',
+      start_date: '',
+      due_date: '',
+      description: '',
+    },
+  ],
+  educations: [
+    {
+      institute: '',
+      degree: '',
+      due_date: '',
+      description: '',
+    },
+  ],
 };
 export const UserContextProvider = ({ children }) => {
-  const [privateInfo, setPrivateInfo] = useState(defaultPrivateInfo);
-  const [experienceInfo, setExperienceInfo] = useState([defaultExperienceInfo]);
-  const [educationInfo, setEducationInfo] = useState([defaultEducationInfo]);
-  const finalInfo = {
-    ...privateInfo,
-    experienceInfo,
-    educationInfo,
-  };
-  console.table(finalInfo);
+  const [inputsInfo, setInputsInfo] = useState(defaultValues);
   const [page, setPage] = useState(1);
-
+  console.log(inputsInfo);
   return (
     <UserContext.Provider
       value={{
-        experienceInfo,
-        setExperienceInfo,
-        privateInfo,
-        setPrivateInfo,
-        educationInfo,
-        setEducationInfo,
+        inputsInfo,
+        setInputsInfo,
+        defaultValues,
         page,
         setPage,
-        defaultPrivateInfo,
-        defaultExperienceInfo,
-        defaultEducationInfo,
       }}
     >
       {children}

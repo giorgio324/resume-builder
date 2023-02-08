@@ -76,7 +76,6 @@ const Education = () => {
                     id='degrees'
                     name='degree'
                     className='degrees-select'
-                    value={''}
                     onChange={(e) => {
                       handleOnChange(e, index);
                     }}
@@ -85,13 +84,17 @@ const Education = () => {
                       value=''
                       className='select-option'
                       disabled
-                      selected
+                      defaultValue
                     >
                       აირჩიეთ ხარისხი
                     </option>
                     {degreeList.map((degree) => {
                       return (
-                        <option value={degree.title} key={degree.id}>
+                        <option
+                          className='degree-options'
+                          value={degree.title}
+                          key={degree.id}
+                        >
                           {degree.title}
                         </option>
                       );

@@ -26,3 +26,7 @@
  margin: 8px 0;
  width: 100%;
 }
+
+.degrees-select:focus {
+ outline: 2px solid #BCBCBC;
+}

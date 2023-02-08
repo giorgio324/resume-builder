@@ -1,0 +1,54 @@
+.result-experience-container {
+ word-break: normal;
+}
+
+.result-info {
+ width: 100%;
+}
+
+.user-name-lastName-result-container {
+ display: flex;
+ gap: 20px;
+ word-break: normal;
+}
+
+.user-name,
+.user-lastName {
+ font-size: 34px;
+ color: var(--clr-primary);
+}
+
+.user-email-phone-result-container {
+ padding: 8px 0;
+}
+
+.user-email-phone-result-container .user-email,
+.user-phone {
+ padding: 5px 0;
+}
+
+.user-email,
+.user-phone {
+ display: flex;
+ gap: 5px;
+}
+
+.user-about-result-container {
+ word-break: normal;
+}
+
+.result-title {
+ color: var(--clr-primary);
+ font-size: 18px;
+ text-align: start;
+ display: block;
+ margin-top: 24px;
+ margin-bottom: 15px;
+}
+
+.user-img {
+ width: 246px;
+ height: 246px;
+ object-fit: cover;
+ border-radius: 50%;
+}

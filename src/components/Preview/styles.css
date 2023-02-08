@@ -9,60 +9,13 @@
  padding-top: 45px;
 }
 
-
-.user-img {
- width: 246px;
- height: 246px;
- object-fit: cover;
- border-radius: 50%;
-}
-
 .private-info-result-container {
  display: flex;
  justify-content: space-between;
 }
 
-.user-name,
-.user-lastName {
- font-size: 34px;
- color: var(--clr-primary);
-}
-
 .user-lastName {
  text-align: center;
-}
-
-.user-name-lastName-result-container {
- display: flex;
-
- gap: 20px;
- word-break: normal;
-}
-
-.user-email-phone-result-container {
- padding: 8px 0;
-}
-
-.user-email-phone-result-container .user-email,
-.user-phone {
- padding: 5px 0;
-
-}
-
-
-
-.user-about-result-container {
- word-break: normal;
-}
-
-.user-email,
-.user-phone {
- display: flex;
- gap: 5px;
-}
-
-.result-info {
- width: 100%;
 }
 
 /* watermark */
@@ -77,15 +30,6 @@
 .result-underline {
  border: 1px solid #C8C8C8;
  margin-top: 15px;
-}
-
-.result-title {
- color: var(--clr-primary);
- font-size: 18px;
- text-align: start;
- display: block;
- margin-top: 24px;
- margin-bottom: 15px;
 }
 
 .with-desc {
@@ -142,13 +86,6 @@
  padding-right: 5rem;
 }
 
-
 .result-finish {
  border: 0.8px solid #000000;
 }
-
-.result-experience-container {
- word-break: normal;
-}
-
-.result-education-institute {}

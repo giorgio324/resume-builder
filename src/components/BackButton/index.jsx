@@ -4,32 +4,33 @@ import { UserContext } from '../../context/global.context';
 import arrow from '../../images/back-arrow.svg';
 import './styles.css';
 const BackButton = () => {
-  const {
-    setPrivateInfo,
-    setExperienceInfo,
-    setEducationInfo,
-    setPage,
-    defaultPrivateInfo,
-  } = useContext(UserContext);
+  const { setInputsInfo, setPage } = useContext(UserContext);
   const resetToDefault = () => {
-    setPrivateInfo(defaultPrivateInfo);
-    setExperienceInfo([
-      {
-        position: '',
-        employer: '',
-        startDate: '',
-        endDate: '',
-        description: '',
-      },
-    ]);
-    setEducationInfo([
-      {
-        institute: '',
-        degree: '',
-        due_date: '',
-        description: '',
-      },
-    ]);
+    setInputsInfo({
+      name: '',
+      surname: '',
+      about_me: '',
+      email: '',
+      phone_number: '',
+      image: '',
+      experiences: [
+        {
+          position: '',
+          employer: '',
+          start_date: '',
+          due_date: '',
+          description: '',
+        },
+      ],
+      educations: [
+        {
+          institute: '',
+          degree: '',
+          due_date: '',
+          description: '',
+        },
+      ],
+    });
     setPage(1);
   };
   return (

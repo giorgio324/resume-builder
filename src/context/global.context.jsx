@@ -30,6 +30,7 @@ export const UserContextProvider = ({ children }) => {
   const [inputsInfo, setInputsInfo] = useState(defaultValues);
   const [page, setPage] = useState(1);
   console.log(inputsInfo);
+  // todo add localsorage and store inputsInfo on each edit
   return (
     <UserContext.Provider
       value={{

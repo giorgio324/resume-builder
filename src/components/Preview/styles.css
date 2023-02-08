@@ -36,30 +36,6 @@
  margin-bottom: 0 !important;
 }
 
-.result-learn-container {
- display: flex;
- font-weight: bold;
- align-items: center;
- justify-content: flex-start;
- margin-top: 15px;
-}
-
-.result-education-degree {
- margin-left: 16px;
-}
-
-.result-education-endDate {
- margin-top: 7px;
- color: #909090;
-}
-
-.result-education-description {
- width: 100%;
- line-height: 22px;
- margin-top: 16px;
- padding-right: 5rem;
-}
-
 .result-finish {
  border: 0.8px solid #000000;
 }

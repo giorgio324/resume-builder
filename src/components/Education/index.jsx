@@ -4,13 +4,13 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
 const Education = () => {
-  const { setInputsInfo, inputsInfo, page, setPage } = useContext(UserContext);
+  const { page, setPage, formik } = useContext(UserContext);
   const [degreeList, setDegreeList] = useState([]);
-  const handleAddField = () => {
-    setInputsInfo({
-      ...inputsInfo,
+  const handleAddEducationField = () => {
+    formik.setValues({
+      ...formik.values,
       educations: [
-        ...inputsInfo.educations,
+        ...formik.values.educations,
         {
           institute: '',
           degree: '',
@@ -18,16 +18,6 @@ const Education = () => {
           description: '',
         },
       ],
-    });
-  };
-  const handleOnChange = (e, index) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    const updatedEducations = [...inputsInfo.educations];
-    updatedEducations[index][name] = value;
-    setInputsInfo({
-      ...inputsInfo,
-      educations: updatedEducations,
     });
   };
   // fetch degree list from server
@@ -54,17 +44,15 @@ const Education = () => {
         </div>
         <div className='underline'></div>
         {/* todo change values and onchange func */}
-        {inputsInfo.educations.map((fieldName, index) => {
+        {formik.values.educations.map((fieldName, index) => {
           return (
             <div className='fieldes-container' key={index}>
               <div className='education-institute-input-container'>
                 <CustomInput
                   className={'education-institute-input'}
-                  htmlForName={'institute'}
+                  htmlForName={`educations[${index}].institute`}
                   label={'სასწავლებელი'}
-                  onChangeFunc={(e) => {
-                    handleOnChange(e, index);
-                  }}
+                  onChangeFunc={formik.handleChange}
                   placeholder={'სასწავლებელი'}
                   type={'text'}
                   value={fieldName.institute}
@@ -79,11 +67,9 @@ const Education = () => {
                   {/* todo fix this */}
                   <select
                     id='degrees'
-                    name='degree'
+                    name={`educations[${index}].degree`}
                     className='degrees-select'
-                    onChange={(e) => {
-                      handleOnChange(e, index);
-                    }}
+                    onChange={formik.handleChange}
                     value={fieldName.degree}
                   >
                     <option
@@ -106,11 +92,9 @@ const Education = () => {
                 <div className='education-endDate-input-container'>
                   <CustomInput
                     className={'education-endDate-input'}
-                    htmlForName={'due_date'}
+                    htmlForName={`educations[${index}].due_date`}
                     label={'დამთავრების რიცხვი'}
-                    onChangeFunc={(e) => {
-                      handleOnChange(e, index);
-                    }}
+                    onChangeFunc={formik.handleChange}
                     type={'date'}
                     value={fieldName.due_date}
                     labelClass={'education-endDate-label'}
@@ -120,11 +104,9 @@ const Education = () => {
               <div className='education-description-input-container'>
                 <CustomInput
                   className={'education-description-input'}
-                  htmlForName={'description'}
+                  htmlForName={`educations[${index}].description`}
                   label={'აღწერა'}
-                  onChangeFunc={(e) => {
-                    handleOnChange(e, index);
-                  }}
+                  onChangeFunc={formik.handleChange}
                   placeholder={'განათლების აღწერა'}
                   type={'text'}
                   value={fieldName.description}
@@ -140,7 +122,7 @@ const Education = () => {
           <CustomButton
             className={'add-more'}
             buttonText={'სხვა სასწავლებლის დამატება'}
-            onClickFunc={handleAddField}
+            onClickFunc={handleAddEducationField}
           ></CustomButton>
         </div>
         <div className='navigation-button-container'>

@@ -1,57 +1,58 @@
 import { useState, createContext, useEffect } from 'react';
+import { useFormik } from 'formik';
 export const UserContext = createContext();
 
-export const defaultValues = {
-  name: '',
-  surname: '',
-  about_me: '',
-  email: '',
-  phone_number: '',
-  image: '',
-  experiences: [
-    {
-      position: '',
-      employer: '',
-      start_date: '',
-      due_date: '',
-      description: '',
-    },
-  ],
-  educations: [
-    {
-      institute: '',
-      degree: '',
-      due_date: '',
-      description: '',
-    },
-  ],
-};
 export const UserContextProvider = ({ children }) => {
-  const [inputsInfo, setInputsInfo] = useState(() => {
-    const storedState = localStorage.getItem('inputValues');
-    return storedState ? JSON.parse(storedState) : defaultValues;
-  });
   const [page, setPage] = useState(() => {
     const storedPage = localStorage.getItem('pageNumber');
     return storedPage ? JSON.parse(storedPage) : 1;
   });
-  console.log(inputsInfo);
-  // todo add localsorage and store inputsInfo on each edit
-
+  const initialValues = JSON.parse(
+    localStorage.getItem('formikInputValues')
+  ) || {
+    name: '',
+    surname: '',
+    about_me: '',
+    email: '',
+    phone_number: '',
+    image: '',
+    experiences: [
+      {
+        position: '',
+        employer: '',
+        start_date: '',
+        due_date: '',
+        description: '',
+      },
+    ],
+    educations: [
+      {
+        institute: '',
+        degree: '',
+        due_date: '',
+        description: '',
+      },
+    ],
+  };
+  const formik = useFormik({
+    initialValues,
+    onSubmit: (values, { setSubmitting }) => {
+      setSubmitting(false);
+    },
+  });
+  console.log(formik); // local storage setItem functions
   useEffect(() => {
-    localStorage.setItem('inputValues', JSON.stringify(inputsInfo));
-  }, [inputsInfo]);
+    localStorage.setItem('formikInputValues', JSON.stringify(formik.values));
+  }, [formik.values]);
   useEffect(() => {
     localStorage.setItem('pageNumber', JSON.stringify(page));
   }, [page]);
   return (
     <UserContext.Provider
       value={{
-        inputsInfo,
-        setInputsInfo,
-        defaultValues,
         page,
         setPage,
+        formik,
       }}
     >
       {children}

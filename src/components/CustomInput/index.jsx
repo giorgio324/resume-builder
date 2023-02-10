@@ -38,7 +38,7 @@ const CustomInput = ({
             name={htmlForName}
             placeholder={placeholder}
             onChange={onChangeFunc}
-            id={id}
+            id={htmlForName}
             value={value}
           />
         </>

@@ -4,9 +4,9 @@ import { UserContext } from '../../context/global.context';
 import arrow from '../../images/back-arrow.svg';
 import './styles.css';
 const BackButton = () => {
-  const { setInputsInfo, setPage } = useContext(UserContext);
+  const { formik, setPage } = useContext(UserContext);
   const resetToDefault = () => {
-    setInputsInfo({
+    formik.setValues({
       name: '',
       surname: '',
       about_me: '',

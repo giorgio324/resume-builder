@@ -5,13 +5,13 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import './styles.css';
 const Experience = () => {
-  const { setInputsInfo, inputsInfo, page, setPage } = useContext(UserContext);
+  const { page, setPage, formik } = useContext(UserContext);
 
-  const handleAddField = (e) => {
-    setInputsInfo({
-      ...inputsInfo,
+  const handleAddExperienceField = (e) => {
+    formik.setValues({
+      ...formik.values,
       experiences: [
-        ...inputsInfo.experiences,
+        ...formik.values.experiences,
         {
           position: '',
           employer: '',
@@ -22,16 +22,6 @@ const Experience = () => {
       ],
     });
   };
-  const handleOnChange = (e, index) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    const updatedExperiences = [...inputsInfo.experiences];
-    updatedExperiences[index][name] = value;
-    setInputsInfo({
-      ...inputsInfo,
-      experiences: updatedExperiences,
-    });
-  };
   return (
     <>
       <div className='fill-form-container'>
@@ -40,17 +30,15 @@ const Experience = () => {
           <p>{page}/3</p>
         </div>
         <div className='underline'></div>
-        {inputsInfo.experiences.map((fieldName, index) => {
+        {formik.values.experiences.map((fieldName, index) => {
           return (
             <div className='fieldes-container' key={index}>
               <div className='experience-position-input-container'>
                 <CustomInput
                   className={' experience-position-input'}
-                  htmlForName={'position'}
+                  htmlForName={`experiences[${index}].position`}
                   label={'თანამდებობა'}
-                  onChangeFunc={(e) => {
-                    handleOnChange(e, index);
-                  }}
+                  onChangeFunc={formik.handleChange}
                   placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
                   type={'text'}
                   value={fieldName.position}
@@ -61,11 +49,9 @@ const Experience = () => {
               <div className='experience-employer-input-container'>
                 <CustomInput
                   className={' experience-employer-input'}
-                  htmlForName={'employer'}
+                  htmlForName={`experiences[${index}].employer`}
                   label={'დამსაქმებელი'}
-                  onChangeFunc={(e) => {
-                    handleOnChange(e, index);
-                  }}
+                  onChangeFunc={formik.handleChange}
                   placeholder={'დამსაქმებელი'}
                   type={'text'}
                   value={fieldName.employer}
@@ -77,11 +63,9 @@ const Experience = () => {
                 <div className='user-start-date-input-container'>
                   <CustomInput
                     className={' user-start-date-input'}
-                    htmlForName={'start_date'}
+                    htmlForName={`experiences[${index}].start_date`}
                     label={'დაწყების რიცხვი'}
-                    onChangeFunc={(e) => {
-                      handleOnChange(e, index);
-                    }}
+                    onChangeFunc={formik.handleChange}
                     type={'date'}
                     value={fieldName.start_date}
                     labelClass={'start-date-label'}
@@ -90,11 +74,9 @@ const Experience = () => {
                 <div className='user-end-date-input-container'>
                   <CustomInput
                     className={' user-end-date-input'}
-                    htmlForName={'due_date'}
+                    htmlForName={`experiences[${index}].due_date`}
                     label={'დამთავრების რიცხვი'}
-                    onChangeFunc={(e) => {
-                      handleOnChange(e, index);
-                    }}
+                    onChangeFunc={formik.handleChange}
                     type={'date'}
                     value={fieldName.due_date}
                     labelClass={'end-date-label'}
@@ -104,11 +86,9 @@ const Experience = () => {
               <div className='experience-description-input-container'>
                 <CustomInput
                   className={' experience-description-input'}
-                  htmlForName={'description'}
+                  htmlForName={`experiences[${index}].description`}
                   label={'აღწერა'}
-                  onChangeFunc={(e) => {
-                    handleOnChange(e, index);
-                  }}
+                  onChangeFunc={formik.handleChange}
                   placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
                   type={'text'}
                   value={fieldName.description}
@@ -124,7 +104,7 @@ const Experience = () => {
           <CustomButton
             className={'add-more'}
             buttonText={'მეტი გამოცდილების დამატება'}
-            onClickFunc={handleAddField}
+            onClickFunc={handleAddExperienceField}
           ></CustomButton>
         </div>
         <div className='navigation-button-container'>

@@ -6,22 +6,15 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 
 const PrivateInfo = () => {
-  const { page, setPage, inputsInfo, setInputsInfo } = useContext(UserContext);
+  const { page, setPage, formik } = useContext(UserContext);
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setInputsInfo((prevInfo) => {
-      return { ...prevInfo, [name]: value };
+  const pictureHandler = (e) => {
+    formik.setValues({
+      ...formik.values,
+      image: URL.createObjectURL(e.target.files[0]),
     });
   };
 
-  const pictureHandler = (e) => {
-    setInputsInfo((prevInfo) => ({
-      ...prevInfo,
-      image: URL.createObjectURL(e.target.files[0]),
-    }));
-  };
   return (
     <>
       <div className='fill-form-container'>
@@ -37,8 +30,8 @@ const PrivateInfo = () => {
                 className={'user-name-input '}
                 htmlForName='name'
                 label={'სახელი'}
-                onChangeFunc={handleChange}
-                value={inputsInfo.name}
+                onChangeFunc={formik.handleChange}
+                value={formik.values.name}
                 placeholder={'ანზორ'}
                 type='text'
                 labelClass={'name-label'}
@@ -50,10 +43,10 @@ const PrivateInfo = () => {
                 className={' user-lastName-input'}
                 htmlForName={'surname'}
                 label={'გვარი'}
-                onChangeFunc={handleChange}
+                onChangeFunc={formik.handleChange}
                 placeholder={'მუმლაძე'}
                 type={'text'}
-                value={inputsInfo.surname}
+                value={formik.values.surname}
                 labelClass={'lastName-label'}
               />
               <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
@@ -76,10 +69,10 @@ const PrivateInfo = () => {
               className={' user-about-input'}
               htmlForName={'about_me'}
               label={'ჩემ შესახებ (არასავალდებულო)'}
-              onChangeFunc={handleChange}
+              onChangeFunc={formik.handleChange}
               placeholder={'ზოგადი ინფო შენს შესახებ'}
               type={'text'}
-              value={inputsInfo.about_me}
+              value={formik.values.about_me}
               labelClass={'about-label'}
               isTextArea
             />
@@ -89,10 +82,10 @@ const PrivateInfo = () => {
               className={' user-email-input'}
               htmlForName={'email'}
               label={'ელ ფოსტა'}
-              onChangeFunc={handleChange}
+              onChangeFunc={formik.handleChange}
               placeholder={'anzorr666@redberry.ge'}
               type={'email'}
-              value={inputsInfo.email}
+              value={formik.values.email}
               labelClass={'email-label'}
             />
             <p className='hint'>უნდა მთავრდებოდეს @redberry.ge-ით </p>
@@ -102,10 +95,10 @@ const PrivateInfo = () => {
               className={' phone-input'}
               htmlForName={'phone_number'}
               label={'მობილურის ნომერი'}
-              onChangeFunc={handleChange}
+              onChangeFunc={formik.handleChange}
               placeholder={'+995 551 12 34 56'}
               type={'text'}
-              value={inputsInfo.phone_number}
+              value={formik.values.phone_number}
               labelClass={'phoneNumber-label'}
             />
             <p className='hint'>

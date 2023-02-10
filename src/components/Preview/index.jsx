@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/global.context';
 
 const Preview = () => {
-  const { inputsInfo, page } = useContext(UserContext);
+  const { page, formik } = useContext(UserContext);
 
   return (
     <div
@@ -17,12 +17,12 @@ const Preview = () => {
       }
     >
       <img src={watermark} alt='' className='watermark' />
-      <PrivateInfoPreview inputsInfo={inputsInfo} />
+      <PrivateInfoPreview formik={formik} />
       {page > 1 ? (
         <>
           <div className='result-underline'></div>
           <h2 className='result-title with-desc'>გამოცდილება</h2>
-          {inputsInfo.experiences.map((field, index) => {
+          {formik.values.experiences.map((field, index) => {
             return <ExperiencePreview field={field} key={index} />;
           })}
         </>
@@ -34,7 +34,7 @@ const Preview = () => {
         <>
           <div className='result-underline'></div>
           <h2 className='result-title with-desc'>განათლება</h2>
-          {inputsInfo.educations.map((field, index) => {
+          {formik.values.educations.map((field, index) => {
             return <EducationPreview field={field} key={index} />;
           })}
         </>

@@ -1,0 +1,28 @@
+.validated-input {
+ border: 1px solid var(--clr-validation-success);
+
+}
+
+.unvalidated-input {
+ border: 1px solid var(--clr-validation-danger);
+}
+
+.unvalidated-input-label {
+ color: var(--clr-validation-danger);
+}
+
+.unvalidated-icon {
+ position: absolute;
+ top: 50%;
+ right: 0;
+ transform: translate(125%, -50%);
+}
+
+.validated-icon {
+ position: absolute;
+ width: 16px;
+ height: 16px;
+ top: 50%;
+ right: 16px;
+ transform: translateY(-50%);
+}

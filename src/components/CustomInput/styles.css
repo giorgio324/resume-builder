@@ -3,7 +3,11 @@
 .user-email-input,
 .phone-input,
 .user-name-input-container,
+.user-email-input-container,
+.user-number-input-container,
+.user-picture-input-container,
 .user-lastName-input-container {
+ position: relative;
  width: 100%;
 }
 

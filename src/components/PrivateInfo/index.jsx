@@ -4,7 +4,8 @@ import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
-
+import ValidationIcons from '../ValidationIcons';
+import validatedPassedIcon from '../../images/validationPassed.svg';
 const PrivateInfo = () => {
   const { page, setPage, formik } = useContext(UserContext);
 
@@ -14,7 +15,6 @@ const PrivateInfo = () => {
       image: URL.createObjectURL(e.target.files[0]),
     });
   };
-
   return (
     <>
       <div className='fill-form-container'>
@@ -27,28 +27,56 @@ const PrivateInfo = () => {
           <div className='name-lastname-container'>
             <div className='user-name-input-container'>
               <CustomInput
-                className={'user-name-input '}
+                className={
+                  formik.errors.name && formik.touched.name
+                    ? 'unvalidated-input'
+                    : formik.touched.name
+                    ? 'validated-input'
+                    : 'user-nameame-input'
+                }
                 htmlForName='name'
                 label={'სახელი'}
                 onChangeFunc={formik.handleChange}
+                onBlurFunc={formik.handleBlur}
                 value={formik.values.name}
                 placeholder={'ანზორ'}
                 type='text'
-                labelClass={'name-label'}
+                labelClass={
+                  formik.errors.name && formik.touched.name
+                    ? 'unvalidated-input-label'
+                    : formik.touched.name
+                    ? 'validated-input-label'
+                    : 'name-label'
+                }
               />
+              <ValidationIcons formik={formik} iconFor={'name'} />
               <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
             </div>
             <div className='user-lastName-input-container'>
               <CustomInput
-                className={' user-lastName-input'}
+                className={
+                  formik.errors.surname && formik.touched.surname
+                    ? 'unvalidated-input'
+                    : formik.touched.surname
+                    ? 'validated-input'
+                    : 'user-lastName-input'
+                }
                 htmlForName={'surname'}
                 label={'გვარი'}
                 onChangeFunc={formik.handleChange}
+                onBlurFunc={formik.handleBlur}
                 placeholder={'მუმლაძე'}
                 type={'text'}
                 value={formik.values.surname}
-                labelClass={'lastName-label'}
+                labelClass={
+                  formik.errors.surname && formik.touched.surname
+                    ? 'unvalidated-input-label'
+                    : formik.touched.surname
+                    ? 'validated-input-label'
+                    : 'lastName-label'
+                }
               />
+              <ValidationIcons formik={formik} iconFor={'surname'} />
               <p className='hint'>მინიმუმ 2 ასო, ქართული ასოები</p>
             </div>
           </div>
@@ -59,17 +87,33 @@ const PrivateInfo = () => {
               htmlForName={'file-input'}
               label={'ატვირთვა'}
               onChangeFunc={pictureHandler}
+              onBlurFunc={formik.handleBlur}
               type={'file'}
               id={'file-input'}
               labelClass={'picture-label'}
             />
+            {formik.values.image ? (
+              <img
+                src={validatedPassedIcon}
+                draggable={false}
+                className={'validated-icon image-validation-icon'}
+                alt=''
+              />
+            ) : (
+              ''
+            )}
           </div>
           <div className='user-about-input-container'>
             <CustomInput
-              className={' user-about-input'}
+              className={
+                formik.touched.about_me && formik.values.about_me.length > 0
+                  ? 'validated-input'
+                  : 'user-about-input'
+              }
               htmlForName={'about_me'}
               label={'ჩემ შესახებ (არასავალდებულო)'}
               onChangeFunc={formik.handleChange}
+              onBlurFunc={formik.handleBlur}
               placeholder={'ზოგადი ინფო შენს შესახებ'}
               type={'text'}
               value={formik.values.about_me}
@@ -79,28 +123,56 @@ const PrivateInfo = () => {
           </div>
           <div className='user-email-input-container'>
             <CustomInput
-              className={' user-email-input'}
+              className={
+                formik.errors.email && formik.touched.email
+                  ? 'unvalidated-input'
+                  : formik.touched.email
+                  ? 'validated-input'
+                  : 'user-email-input'
+              }
               htmlForName={'email'}
               label={'ელ ფოსტა'}
               onChangeFunc={formik.handleChange}
+              onBlurFunc={formik.handleBlur}
               placeholder={'anzorr666@redberry.ge'}
               type={'email'}
               value={formik.values.email}
-              labelClass={'email-label'}
+              labelClass={
+                formik.errors.email && formik.touched.email
+                  ? 'unvalidated-input-label'
+                  : formik.touched.email
+                  ? 'validated-input-label'
+                  : 'email-label'
+              }
             />
+            <ValidationIcons formik={formik} iconFor={'email'} />
             <p className='hint'>უნდა მთავრდებოდეს @redberry.ge-ით </p>
           </div>
           <div className='user-number-input-container'>
             <CustomInput
-              className={' phone-input'}
+              className={
+                formik.errors.phone_number && formik.touched.phone_number
+                  ? 'unvalidated-input'
+                  : formik.touched.phone_number
+                  ? 'validated-input'
+                  : 'phone-input'
+              }
               htmlForName={'phone_number'}
               label={'მობილურის ნომერი'}
               onChangeFunc={formik.handleChange}
+              onBlurFunc={formik.handleBlur}
               placeholder={'+995 551 12 34 56'}
               type={'text'}
               value={formik.values.phone_number}
-              labelClass={'phoneNumber-label'}
+              labelClass={
+                formik.errors.phone_number && formik.touched.phone_number
+                  ? 'unvalidated-input-label'
+                  : formik.touched.phone_number
+                  ? 'validated-input-label'
+                  : 'phoneNumber-label'
+              }
             />
+            <ValidationIcons formik={formik} iconFor={'phone_number'} />
             <p className='hint'>
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
             </p>

@@ -6,11 +6,11 @@ const CustomInput = ({
   type,
   placeholder,
   onChangeFunc,
+  onBlurFunc,
   value,
   isTextArea,
   className,
   labelClass,
-  id,
 }) => {
   return (
     <>
@@ -20,11 +20,14 @@ const CustomInput = ({
             {label}
           </label>
           <textarea
+            className={className}
             name={htmlForName}
             type={type}
             placeholder={placeholder}
             value={value}
             onChange={onChangeFunc}
+            onBlur={onBlurFunc}
+            id={htmlForName}
           />
         </>
       ) : (
@@ -38,6 +41,7 @@ const CustomInput = ({
             name={htmlForName}
             placeholder={placeholder}
             onChange={onChangeFunc}
+            onBlur={onBlurFunc}
             id={htmlForName}
             value={value}
           />

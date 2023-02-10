@@ -1,5 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import { useFormik } from 'formik';
+import { basicSchema } from '../schemas';
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -36,11 +37,14 @@ export const UserContextProvider = ({ children }) => {
   };
   const formik = useFormik({
     initialValues,
-    onSubmit: (values, { setSubmitting }) => {
-      setSubmitting(false);
+    validationSchema: basicSchema,
+    onSubmit: (values) => {
+      console.log(values);
     },
   });
-  console.log(formik); // local storage setItem functions
+
+  console.log(formik.errors);
+  // local storage setItem functions
   useEffect(() => {
     localStorage.setItem('formikInputValues', JSON.stringify(formik.values));
   }, [formik.values]);

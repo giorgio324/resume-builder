@@ -7,6 +7,7 @@ import './styles.css';
 const Experience = () => {
   const { page, setPage, formik } = useContext(UserContext);
 
+  // add fields button function
   const handleAddExperienceField = () => {
     formik.setValues({
       ...formik.values,
@@ -22,6 +23,7 @@ const Experience = () => {
       ],
     });
   };
+
   console.log('experience arrray', formik.errors.experiences);
   return (
     <>
@@ -37,72 +39,92 @@ const Experience = () => {
               <div className='fieldes-container' key={index}>
                 <div className='experience-position-input-container'>
                   <CustomInput
-                    className={
-                      formik.errors.experiences && formik.touched.experiences
-                        ? 'unvalidated-input'
-                        : formik.touched.experiences
-                        ? 'validated-input'
-                        : ' experience-position-input'
-                    }
-                    htmlForName={`experiences[${index}].position`}
-                    label={'თანამდებობა'}
-                    onChangeFunc={formik.handleChange}
-                    placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
                     type={'text'}
+                    htmlForName={`experiences[${index}].position`}
                     value={fieldName.position}
+                    onChangeFunc={formik.handleChange}
+                    onBlurFunc={formik.handleBlur}
+                    label={'თანამდებობა'}
+                    placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
                     labelClass={'position-label'}
+                    className={'experience-position-input'}
                   />
+                  {formik.errors.experiences &&
+                    formik.errors.experiences[index] &&
+                    formik.errors.experiences[index].position && <div>!</div>}
                   <p className='hint'>მინიმუმ 2 სიმბოლო </p>
                 </div>
                 <div className='experience-employer-input-container'>
                   <CustomInput
-                    className={' experience-employer-input'}
-                    htmlForName={`experiences[${index}].employer`}
-                    label={'დამსაქმებელი'}
-                    onChangeFunc={formik.handleChange}
-                    placeholder={'დამსაქმებელი'}
                     type={'text'}
+                    htmlForName={`experiences[${index}].employer`}
                     value={fieldName.employer}
+                    onChangeFunc={formik.handleChange}
+                    onBlurFunc={formik.handleBlur}
+                    label={'დამსაქმებელი'}
+                    placeholder={'დამსაქმებელი'}
                     labelClass={'employer-label'}
+                    className={'experience-employer-input'}
                   />
+                  {formik.errors.experiences &&
+                    formik.errors.experiences[index] &&
+                    formik.errors.experiences[index].employer && <div>!</div>}
                   <p className='hint'>მინიმუმ 2 სიმბოლო </p>
                 </div>
                 <div className='experience-dates-container'>
                   <div className='user-start-date-input-container'>
                     <CustomInput
-                      className={' user-start-date-input'}
-                      htmlForName={`experiences[${index}].start_date`}
-                      label={'დაწყების რიცხვი'}
-                      onChangeFunc={formik.handleChange}
                       type={'date'}
+                      htmlForName={`experiences[${index}].start_date`}
                       value={fieldName.start_date}
+                      onChangeFunc={formik.handleChange}
+                      onBlurFunc={formik.handleBlur}
+                      label={'დაწყების რიცხვი'}
+                      placeholder={'დამსაქმებელი'}
                       labelClass={'start-date-label'}
+                      className={'user-start-date-input'}
                     />
+                    {formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].start_date && (
+                        <div>!</div>
+                      )}
                   </div>
                   <div className='user-end-date-input-container'>
                     <CustomInput
-                      className={' user-end-date-input'}
-                      htmlForName={`experiences[${index}].due_date`}
-                      label={'დამთავრების რიცხვი'}
-                      onChangeFunc={formik.handleChange}
                       type={'date'}
+                      htmlForName={`experiences[${index}].due_date`}
                       value={fieldName.due_date}
+                      onChangeFunc={formik.handleChange}
+                      onBlurFunc={formik.handleBlur}
+                      label={'დამთავრების რიცხვი'}
+                      placeholder={'დამსაქმებელი'}
                       labelClass={'end-date-label'}
+                      className={'user-end-date-input'}
                     />
+                    {formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].due_date && <div>!</div>}
                   </div>
                 </div>
                 <div className='experience-description-input-container'>
                   <CustomInput
-                    className={' experience-description-input'}
-                    htmlForName={`experiences[${index}].description`}
-                    label={'აღწერა'}
-                    onChangeFunc={formik.handleChange}
-                    placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
                     type={'text'}
+                    htmlForName={`experiences[${index}].description`}
                     value={fieldName.description}
+                    onChangeFunc={formik.handleChange}
+                    onBlurFunc={formik.handleBlur}
+                    label={'აღწერა'}
+                    placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
                     labelClass={'description-label'}
+                    className={'experience-description-input'}
                     isTextArea
                   />
+                  {formik.errors.experiences &&
+                    formik.errors.experiences[index] &&
+                    formik.errors.experiences[index].description && (
+                      <div>!</div>
+                    )}
                 </div>
                 <div className='result-underline input-line'></div>
               </div>

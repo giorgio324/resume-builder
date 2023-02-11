@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect } from 'react';
 import { useFormik } from 'formik';
-import { basicSchema, schema } from '../schemas';
+import { schema } from '../schemas';
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -39,7 +39,7 @@ export const UserContextProvider = ({ children }) => {
     initialValues,
     validationSchema: schema[page - 1],
     onSubmit: (values) => {
-      console.log(values);
+      console.log('submited values: ', values);
       setPage(page + 1);
     },
   });

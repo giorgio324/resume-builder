@@ -7,7 +7,7 @@ import CustomButton from '../CustomButton';
 import ValidationIcons from '../ValidationIcons';
 import validatedPassedIcon from '../../images/validationPassed.svg';
 const PrivateInfo = () => {
-  const { page, setPage, formik } = useContext(UserContext);
+  const { page, formik } = useContext(UserContext);
 
   const pictureHandler = (e) => {
     formik.setValues({
@@ -15,6 +15,7 @@ const PrivateInfo = () => {
       image: URL.createObjectURL(e.target.files[0]),
     });
   };
+
   return (
     <>
       <div className='fill-form-container'>
@@ -23,7 +24,10 @@ const PrivateInfo = () => {
           <p>{page}/3</p>
         </div>
         <div className='underline'></div>
-        <div className='fieldes-container p1-field'>
+        <form
+          className='fieldes-container p1-field'
+          onSubmit={formik.handleSubmit}
+        >
           <div className='name-lastname-container'>
             <div className='user-name-input-container'>
               <CustomInput
@@ -177,13 +181,12 @@ const PrivateInfo = () => {
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
             </p>
           </div>
-        </div>
-
-        <CustomButton
-          className={'navigation-btn'}
-          onClickFunc={() => setPage(page + 1)}
-          buttonText={'შემდეგი'}
-        ></CustomButton>
+          <CustomButton
+            className={'navigation-btn'}
+            type={'submit'}
+            buttonText={'შემდეგი'}
+          ></CustomButton>
+        </form>
       </div>
     </>
   );

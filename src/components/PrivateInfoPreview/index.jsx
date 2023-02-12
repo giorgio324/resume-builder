@@ -20,7 +20,15 @@ const PrivateInfoPreview = ({ formik }) => {
           {formik.values.phone_number && (
             <div className='user-phone'>
               <img src={phoneIcon} alt='' />
-              <p>{formik.values.phone_number}</p>
+              <p>
+                {formik.values.phone_number.slice(0, 4) +
+                  ' ' +
+                  formik.values.phone_number.slice(4, 7) +
+                  ' ' +
+                  formik.values.phone_number.slice(7, 9) +
+                  ' ' +
+                  formik.values.phone_number.slice(9, 11)}
+              </p>
             </div>
           )}
         </div>

@@ -37,6 +37,7 @@ const Education = () => {
     };
     fetchData();
   }, []);
+  console.log('degree list', degreeList);
   return (
     <>
       <div className='fill-form-container'>

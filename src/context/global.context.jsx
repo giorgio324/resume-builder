@@ -44,9 +44,6 @@ export const UserContextProvider = ({ children }) => {
     },
   });
 
-  console.log('values', formik.values);
-  console.log('errors', formik.errors);
-  console.log('touched', formik.touched);
   // local storage setItem functions
   useEffect(() => {
     localStorage.setItem('formikInputValues', JSON.stringify(formik.values));

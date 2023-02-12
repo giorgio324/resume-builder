@@ -78,7 +78,7 @@ input::placeholder {
 
 label {
  display: block;
- font-weight: bold;
+ font-weight: 500 !important;
 }
 
 ::placeholder {
@@ -142,7 +142,7 @@ textarea:focus {
 
 .experience-position-input,
 .experience-employer-input {
- font-weight: 600 !important;
+ font-weight: 500 !important;
 }
 
 /* private info */

@@ -146,6 +146,7 @@ const Education = () => {
                           : 'degrees-select'
                       }
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       value={fieldName.degree}
                     >
                       <option
@@ -184,6 +185,7 @@ const Education = () => {
                       htmlForName={`educations[${index}].due_date`}
                       label={'დამთავრების რიცხვი'}
                       onChangeFunc={formik.handleChange}
+                      onBlurFunc={formik.handleBlur}
                       type={'date'}
                       value={fieldName.due_date}
                       labelClass={
@@ -218,6 +220,7 @@ const Education = () => {
                     htmlForName={`educations[${index}].description`}
                     label={'აღწერა'}
                     onChangeFunc={formik.handleChange}
+                    onBlurFunc={formik.handleBlur}
                     placeholder={'განათლების აღწერა'}
                     type={'text'}
                     value={fieldName.description}

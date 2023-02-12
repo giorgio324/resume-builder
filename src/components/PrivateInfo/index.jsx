@@ -173,7 +173,7 @@ const PrivateInfo = () => {
               label={'მობილურის ნომერი'}
               onChangeFunc={formik.handleChange}
               onBlurFunc={formik.handleBlur}
-              placeholder={'+995 551 12 34 56'}
+              placeholder={'+995551123456'}
               type={'text'}
               value={formik.values.phone_number}
               labelClass={

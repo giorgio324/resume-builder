@@ -1,10 +1,10 @@
 /* result-container items */
 .result-container {
  position: relative;
- width: 822px;
+ min-width: 822px;
  min-height: 1080px;
  height: fit-content;
- padding: 0 80px;
+ padding: 0 75px;
  padding-bottom: 8rem;
  background: var(--white);
  padding-top: 45px;

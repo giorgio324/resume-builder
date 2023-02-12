@@ -5,13 +5,15 @@
 .user-name-lastName-result-container {
  display: flex;
  gap: 20px;
- word-break: normal;
+ word-break: break-all;
+ max-width: max-content;
 }
 
 .user-name,
 .user-lastName {
- font-size: 34px;
+ font-size: 32px;
  color: var(--clr-primary);
+ word-break: break-all;
 }
 
 .user-email-phone-result-container {

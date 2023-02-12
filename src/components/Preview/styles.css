@@ -3,6 +3,7 @@
  position: relative;
  width: 822px;
  min-height: 1080px;
+ height: fit-content;
  padding: 0 80px;
  padding-bottom: 8rem;
  background: var(--white);

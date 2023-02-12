@@ -17,8 +17,8 @@ export const schema = [
       .required('Email is required'),
     phone_number: Yup.string()
       .matches(
-        /^\+995 [0-9]{3} [0-9]{2} [0-9]{2} [0-9]{2}$/,
-        'Invalid phone number format. Example: +995 123 45 67 89'
+        /^\+995[0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}$/,
+        'Invalid phone number format. Example: +995123456789'
       )
       .required('Phone number is required'),
     image: Yup.mixed().required('Image is required'),
@@ -26,8 +26,12 @@ export const schema = [
   Yup.object().shape({
     experiences: Yup.array().of(
       Yup.object().shape({
-        position: Yup.string().required('Position is required'),
-        employer: Yup.string().required('Employer is required'),
+        position: Yup.string()
+          .required('Position is required')
+          .min(2, 'Position must be at least 2 characters long'),
+        employer: Yup.string()
+          .required('Employer is required')
+          .min(2, 'Employer must be at least 2 characters long'),
         start_date: Yup.date().required('Start date is required'),
         due_date: Yup.date().required('Due date is required'),
         description: Yup.string().required('Description is required'),
@@ -37,7 +41,9 @@ export const schema = [
   Yup.object().shape({
     educations: Yup.array().of(
       Yup.object().shape({
-        institute: Yup.string().required('Institute is required'),
+        institute: Yup.string()
+          .required('Institute is required')
+          .min(2, 'Institute must be at least 2 characters long'),
         degree: Yup.string().required('Degree is required'),
         due_date: Yup.date().required('Due date is required'),
         description: Yup.string().required('Description is required'),

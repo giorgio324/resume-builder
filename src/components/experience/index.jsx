@@ -26,7 +26,6 @@ const Experience = () => {
     });
   };
 
-  console.log('experience arrray', formik.errors.experiences);
   return (
     <>
       <div className='fill-form-container'>
@@ -48,7 +47,16 @@ const Experience = () => {
                     onBlurFunc={formik.handleBlur}
                     label={'თანამდებობა'}
                     placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
-                    labelClass={'position-label'}
+                    labelClass={
+                      formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].position &&
+                      formik.touched.experiences &&
+                      formik.touched.experiences[index] &&
+                      formik.touched.experiences[index].position
+                        ? 'unvalidated-input-label'
+                        : 'position-label'
+                    }
                     className={
                       formik.errors.experiences &&
                       formik.errors.experiences[index] &&
@@ -100,7 +108,16 @@ const Experience = () => {
                     onBlurFunc={formik.handleBlur}
                     label={'დამსაქმებელი'}
                     placeholder={'დამსაქმებელი'}
-                    labelClass={'employer-label'}
+                    labelClass={
+                      formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].employer &&
+                      formik.touched.experiences &&
+                      formik.touched.experiences[index] &&
+                      formik.touched.experiences[index].employer
+                        ? 'unvalidated-input-label'
+                        : 'employer-label'
+                    }
                     className={
                       formik.errors.experiences &&
                       formik.errors.experiences[index] &&
@@ -151,7 +168,16 @@ const Experience = () => {
                       onChangeFunc={formik.handleChange}
                       onBlurFunc={formik.handleBlur}
                       label={'დაწყების რიცხვი'}
-                      labelClass={'start-date-label'}
+                      labelClass={
+                        formik.errors.experiences &&
+                        formik.errors.experiences[index] &&
+                        formik.errors.experiences[index].start_date &&
+                        formik.touched.experiences &&
+                        formik.touched.experiences[index] &&
+                        formik.touched.experiences[index].start_date
+                          ? 'unvalidated-input-label'
+                          : 'start-date-label'
+                      }
                       className={
                         formik.errors.experiences &&
                         formik.errors.experiences[index] &&
@@ -176,7 +202,16 @@ const Experience = () => {
                       onChangeFunc={formik.handleChange}
                       onBlurFunc={formik.handleBlur}
                       label={'დამთავრების რიცხვი'}
-                      labelClass={'end-date-label'}
+                      labelClass={
+                        formik.errors.experiences &&
+                        formik.errors.experiences[index] &&
+                        formik.errors.experiences[index].due_date &&
+                        formik.touched.experiences &&
+                        formik.touched.experiences[index] &&
+                        formik.touched.experiences[index].due_date
+                          ? 'unvalidated-input-label'
+                          : 'end-date-label'
+                      }
                       className={
                         formik.errors.experiences &&
                         formik.errors.experiences[index] &&
@@ -203,7 +238,16 @@ const Experience = () => {
                     onBlurFunc={formik.handleBlur}
                     label={'აღწერა'}
                     placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
-                    labelClass={'description-label'}
+                    labelClass={
+                      formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].description &&
+                      formik.touched.experiences &&
+                      formik.touched.experiences[index] &&
+                      formik.touched.experiences[index].description
+                        ? 'unvalidated-input-label'
+                        : 'description-label'
+                    }
                     className={
                       formik.errors.experiences &&
                       formik.errors.experiences[index] &&

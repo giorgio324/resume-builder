@@ -6,6 +6,7 @@ import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
 import ValidationIcons from '../ValidationIcons';
 import validatedPassedIcon from '../../images/validationPassed.svg';
+import validatedFailedIcon from '../../images/validationFailed.svg';
 const PrivateInfo = () => {
   const { page, formik } = useContext(UserContext);
 
@@ -101,6 +102,13 @@ const PrivateInfo = () => {
                 src={validatedPassedIcon}
                 draggable={false}
                 className={'validated-icon image-validation-icon'}
+                alt=''
+              />
+            ) : formik.errors.image && formik.touched.image ? (
+              <img
+                src={validatedFailedIcon}
+                draggable={false}
+                className={'unvalidated-icon image-validation-icon'}
                 alt=''
               />
             ) : (

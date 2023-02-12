@@ -30,3 +30,7 @@
 .degrees-select:focus {
  outline: 2px solid #BCBCBC;
 }
+
+.education-institute-input-container {
+ position: relative;
+}

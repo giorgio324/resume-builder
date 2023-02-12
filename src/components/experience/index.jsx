@@ -3,6 +3,8 @@ import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';
+import validatedPassedIcon from '../../images/validationPassed.svg';
+import validatedFailedIcon from '../../images/validationFailed.svg';
 import './styles.css';
 const Experience = () => {
   const { page, setPage, formik } = useContext(UserContext);
@@ -47,11 +49,46 @@ const Experience = () => {
                     label={'თანამდებობა'}
                     placeholder={'დეველოპერი, დიზაინერი, ა.შ.'}
                     labelClass={'position-label'}
-                    className={'experience-position-input'}
+                    className={
+                      formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].position &&
+                      formik.touched.experiences &&
+                      formik.touched.experiences[index] &&
+                      formik.touched.experiences[index].position
+                        ? 'unvalidated-input'
+                        : formik.touched.experiences &&
+                          formik.touched.experiences[index] &&
+                          formik.touched.experiences[index].position
+                        ? 'validated-input'
+                        : 'experience-position-input'
+                    }
                   />
                   {formik.errors.experiences &&
-                    formik.errors.experiences[index] &&
-                    formik.errors.experiences[index].position && <div>!</div>}
+                  formik.errors.experiences[index] &&
+                  formik.errors.experiences[index].position &&
+                  formik.touched.experiences &&
+                  formik.touched.experiences[index] &&
+                  formik.touched.experiences[index].position ? (
+                    <img
+                      src={validatedFailedIcon}
+                      draggable={false}
+                      className={'unvalidated-icon'}
+                      alt=''
+                    />
+                  ) : formik.touched.experiences &&
+                    formik.touched.experiences[index] &&
+                    formik.touched.experiences[index].position ? (
+                    <img
+                      src={validatedPassedIcon}
+                      draggable={false}
+                      className={'validated-icon'}
+                      alt=''
+                    />
+                  ) : (
+                    ''
+                  )}
+
                   <p className='hint'>მინიმუმ 2 სიმბოლო </p>
                 </div>
                 <div className='experience-employer-input-container'>
@@ -64,11 +101,45 @@ const Experience = () => {
                     label={'დამსაქმებელი'}
                     placeholder={'დამსაქმებელი'}
                     labelClass={'employer-label'}
-                    className={'experience-employer-input'}
+                    className={
+                      formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].employer &&
+                      formik.touched.experiences &&
+                      formik.touched.experiences[index] &&
+                      formik.touched.experiences[index].employer
+                        ? 'unvalidated-input'
+                        : formik.touched.experiences &&
+                          formik.touched.experiences[index] &&
+                          formik.touched.experiences[index].employer
+                        ? 'validated-input'
+                        : 'experience-employer-input'
+                    }
                   />
                   {formik.errors.experiences &&
-                    formik.errors.experiences[index] &&
-                    formik.errors.experiences[index].employer && <div>!</div>}
+                  formik.errors.experiences[index] &&
+                  formik.errors.experiences[index].employer &&
+                  formik.touched.experiences &&
+                  formik.touched.experiences[index] &&
+                  formik.touched.experiences[index].employer ? (
+                    <img
+                      src={validatedFailedIcon}
+                      draggable={false}
+                      className={'unvalidated-icon'}
+                      alt=''
+                    />
+                  ) : formik.touched.experiences &&
+                    formik.touched.experiences[index] &&
+                    formik.touched.experiences[index].employer ? (
+                    <img
+                      src={validatedPassedIcon}
+                      draggable={false}
+                      className={'validated-icon'}
+                      alt=''
+                    />
+                  ) : (
+                    ''
+                  )}
                   <p className='hint'>მინიმუმ 2 სიმბოლო </p>
                 </div>
                 <div className='experience-dates-container'>
@@ -80,15 +151,22 @@ const Experience = () => {
                       onChangeFunc={formik.handleChange}
                       onBlurFunc={formik.handleBlur}
                       label={'დაწყების რიცხვი'}
-                      placeholder={'დამსაქმებელი'}
                       labelClass={'start-date-label'}
-                      className={'user-start-date-input'}
+                      className={
+                        formik.errors.experiences &&
+                        formik.errors.experiences[index] &&
+                        formik.errors.experiences[index].start_date &&
+                        formik.touched.experiences &&
+                        formik.touched.experiences[index] &&
+                        formik.touched.experiences[index].start_date
+                          ? 'unvalidated-input'
+                          : formik.touched.experiences &&
+                            formik.touched.experiences[index] &&
+                            formik.touched.experiences[index].start_date
+                          ? 'validated-input'
+                          : 'user-start-date-input'
+                      }
                     />
-                    {formik.errors.experiences &&
-                      formik.errors.experiences[index] &&
-                      formik.errors.experiences[index].start_date && (
-                        <div>!</div>
-                      )}
                   </div>
                   <div className='user-end-date-input-container'>
                     <CustomInput
@@ -98,13 +176,22 @@ const Experience = () => {
                       onChangeFunc={formik.handleChange}
                       onBlurFunc={formik.handleBlur}
                       label={'დამთავრების რიცხვი'}
-                      placeholder={'დამსაქმებელი'}
                       labelClass={'end-date-label'}
-                      className={'user-end-date-input'}
+                      className={
+                        formik.errors.experiences &&
+                        formik.errors.experiences[index] &&
+                        formik.errors.experiences[index].due_date &&
+                        formik.touched.experiences &&
+                        formik.touched.experiences[index] &&
+                        formik.touched.experiences[index].due_date
+                          ? 'unvalidated-input'
+                          : formik.touched.experiences &&
+                            formik.touched.experiences[index] &&
+                            formik.touched.experiences[index].due_date
+                          ? 'validated-input'
+                          : 'user-end-date-input'
+                      }
                     />
-                    {formik.errors.experiences &&
-                      formik.errors.experiences[index] &&
-                      formik.errors.experiences[index].due_date && <div>!</div>}
                   </div>
                 </div>
                 <div className='experience-description-input-container'>
@@ -117,14 +204,22 @@ const Experience = () => {
                     label={'აღწერა'}
                     placeholder={'როლი თანამდებობაზე და ზოგადი აღწერა'}
                     labelClass={'description-label'}
-                    className={'experience-description-input'}
+                    className={
+                      formik.errors.experiences &&
+                      formik.errors.experiences[index] &&
+                      formik.errors.experiences[index].description &&
+                      formik.touched.experiences &&
+                      formik.touched.experiences[index] &&
+                      formik.touched.experiences[index].description
+                        ? 'unvalidated-input'
+                        : formik.touched.experiences &&
+                          formik.touched.experiences[index] &&
+                          formik.touched.experiences[index].description
+                        ? 'validated-input'
+                        : 'experience-description-input'
+                    }
                     isTextArea
                   />
-                  {formik.errors.experiences &&
-                    formik.errors.experiences[index] &&
-                    formik.errors.experiences[index].description && (
-                      <div>!</div>
-                    )}
                 </div>
                 <div className='result-underline input-line'></div>
               </div>

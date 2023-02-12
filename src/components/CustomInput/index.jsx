@@ -11,6 +11,7 @@ const CustomInput = ({
   isTextArea,
   className,
   labelClass,
+  style,
 }) => {
   return (
     <>
@@ -28,6 +29,7 @@ const CustomInput = ({
             onChange={onChangeFunc}
             onBlur={onBlurFunc}
             id={htmlForName}
+            style={style}
           />
         </>
       ) : (
@@ -44,6 +46,7 @@ const CustomInput = ({
             onBlur={onBlurFunc}
             id={htmlForName}
             value={value}
+            style={style}
           />
         </>
       )}

@@ -4,10 +4,15 @@
 
 .experience-position-input-container {
  margin-bottom: 30px;
- position: relative;
+
 }
 
-
+.experience-employer-input-container,
+.experience-position-input-container,
+.user-start-date-input-container,
+.user-end-date-input-container {
+ position: relative;
+}
 
 
 .user-start-date-input-container,

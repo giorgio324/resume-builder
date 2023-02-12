@@ -1,14 +1,14 @@
 .validated-input {
- border: 1px solid var(--clr-validation-success);
+ border: 1px solid var(--clr-validation-success) !important;
 
 }
 
 .unvalidated-input {
- border: 1px solid var(--clr-validation-danger);
+ border: 1px solid var(--clr-validation-danger) !important;
 }
 
 .unvalidated-input-label {
- color: var(--clr-validation-danger);
+ color: var(--clr-validation-danger) !important;
 }
 
 .unvalidated-icon {

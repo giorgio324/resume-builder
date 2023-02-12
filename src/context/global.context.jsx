@@ -43,14 +43,18 @@ export const UserContextProvider = ({ children }) => {
       setPage(page + 1);
     },
   });
-  console.log(formik.values);
-  console.log(formik.errors);
+
+  console.log('values', formik.values);
+  console.log('errors', formik.errors);
+  console.log('touched', formik.touched);
   // local storage setItem functions
   useEffect(() => {
     localStorage.setItem('formikInputValues', JSON.stringify(formik.values));
   }, [formik.values]);
   useEffect(() => {
     localStorage.setItem('pageNumber', JSON.stringify(page));
+    // this fixes a bug where touched is applyed to all values in formik when page changes
+    formik.setTouched({});
   }, [page]);
   return (
     <UserContext.Provider

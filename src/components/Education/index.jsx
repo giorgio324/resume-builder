@@ -23,8 +23,6 @@ const Education = () => {
     });
   };
 
-  console.log('degree list', degreeList);
-  console.log('values ', formik.values);
   return (
     <>
       <div className='fill-form-container'>

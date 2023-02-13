@@ -27,7 +27,9 @@ const PrivateInfoPreview = ({ formik }) => {
                   ' ' +
                   formik.values.phone_number.slice(7, 9) +
                   ' ' +
-                  formik.values.phone_number.slice(9, 11)}
+                  formik.values.phone_number.slice(9, 11) +
+                  ' ' +
+                  formik.values.phone_number.slice(11, 13)}
               </p>
             </div>
           )}

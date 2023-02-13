@@ -1,6 +1,7 @@
 import { useState, createContext, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { schema } from '../schemas';
+import axios from 'axios';
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -9,6 +10,23 @@ export const UserContextProvider = ({ children }) => {
     const storedPage = localStorage.getItem('pageNumber');
     return storedPage ? JSON.parse(storedPage) : 1;
   });
+  const checkDataCvs = async () => {
+    try {
+      // const res = await fetch('https://resume.redberryinternship.ge/api/cvs', {
+      //   method: 'post',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formik.values),
+      // });
+      const res = await axios.post(
+        'https://resume.redberryinternship.ge/api/cvs',
+        formik.values
+      );
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const initialValues = JSON.parse(
     localStorage.getItem('formikInputValues')
   ) || {
@@ -43,7 +61,8 @@ export const UserContextProvider = ({ children }) => {
       if (page <= 2) {
         setPage(page + 1);
       } else {
-        console.log('im ready to be sent');
+        console.log('data i am sending :', formik.values);
+        checkDataCvs();
       }
       console.log('page:', page);
     },

@@ -1,0 +1,10 @@
+.final-resume-container {
+ background: var(--white);
+ height: fit-content;
+ max-width: 822px;
+ min-height: 970px;
+ min-width: 822px;
+ padding: 45px 75px 8rem;
+ position: relative;
+ border: 0.8px solid #000000;
+}

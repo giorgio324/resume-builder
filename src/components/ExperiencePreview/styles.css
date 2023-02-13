@@ -6,6 +6,8 @@
  display: flex;
  font-weight: bold;
  margin-top: 15px;
+ max-width: 100%;
+ word-break: break-all;
 }
 
 .result-employer-position {

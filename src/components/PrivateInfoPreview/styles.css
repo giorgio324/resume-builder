@@ -1,5 +1,7 @@
 .result-info {
  width: 100%;
+ max-width: 100%;
+ word-break: break-all;
 }
 
 .user-name-lastName-result-container {
@@ -32,7 +34,8 @@
 }
 
 .user-about-result-container {
- word-break: normal;
+ word-break: break-all;
+ max-width: 400px;
 }
 
 .result-title {

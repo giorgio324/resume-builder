@@ -17,7 +17,14 @@
 
 .result-education-description {
  width: 100%;
+ max-width: 100%;
+ word-break: break-all;
  line-height: 22px;
  margin-top: 16px;
  padding-right: 5rem;
+}
+
+.result-education-institute p {
+ max-width: 450px;
+ word-break: break-all;
 }

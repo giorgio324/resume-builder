@@ -4,10 +4,11 @@ import Preview from '../../components/Preview';
 import PrivateInfo from '../../components/PrivateInfo';
 import Experience from '../../components/Experience';
 import Education from '../../components/Education';
+import FinalPage from '../../components/FinalPage';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 const Resume = () => {
-  const { page } = useContext(UserContext);
+  const { page, fetchedData } = useContext(UserContext);
   return (
     <ResumeLayout>
       {page === 1 ? (
@@ -27,7 +28,7 @@ const Resume = () => {
         </>
       ) : (
         <div className='resume-finished-page'>
-          <Preview />
+          <FinalPage />
         </div>
       )}
     </ResumeLayout>

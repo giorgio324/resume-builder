@@ -5,6 +5,7 @@ import axios from 'axios';
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
+  const [fetchedData, setFetchedData] = useState();
   const [degreeList, setDegreeList] = useState([]);
   const [page, setPage] = useState(() => {
     const storedPage = localStorage.getItem('pageNumber');
@@ -51,7 +52,9 @@ export const UserContextProvider = ({ children }) => {
         'https://resume.redberryinternship.ge/api/cvs',
         formData
       );
-      console.log('res:', res.data);
+      setFetchedData(res.data);
+      localStorage.setItem('featchedData', JSON.stringify(res.data));
+      console.log(fetchedData);
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +68,7 @@ export const UserContextProvider = ({ children }) => {
     about_me: '',
     email: '',
     phone_number: '',
-    image: '',
+    image: {},
     experiences: [
       {
         position: '',
@@ -93,6 +96,7 @@ export const UserContextProvider = ({ children }) => {
       } else {
         checkDataCvs();
         console.log('data i am sending :', formik.values);
+        setPage(page + 1);
       }
       console.log('page:', page);
     },
@@ -121,7 +125,8 @@ export const UserContextProvider = ({ children }) => {
     // this fixes a bug where touched is applyed to all values in formik when page changes
     formik.setTouched({});
   }, [page]);
-
+  console.log(formik.values);
+  console.log('res:', fetchedData);
   return (
     <UserContext.Provider
       value={{
@@ -129,6 +134,7 @@ export const UserContextProvider = ({ children }) => {
         setPage,
         formik,
         degreeList,
+        fetchedData,
       }}
     >
       {children}

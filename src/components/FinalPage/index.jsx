@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles.css';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 import emailIcon from '../../images/email.svg';
 import phoneIcon from '../../images/phone.svg';
+import closePopupimg from '../../images/closePopup.svg';
 const FinalPage = () => {
+  const [closePopup, setClosePopup] = useState(false);
   const { fetchedData } = useContext(UserContext);
   if (!fetchedData) return null;
   return (
     <div className='final-resume-container'>
+      {!closePopup ? (
+        <div className='pop-up'>
+          <div className='container-pop-up'>
+            <h2>რეზიუმე წარმატებით გაიგზავნა 🎉</h2>
+            <button onClick={() => setClosePopup(true)}>
+              <img src={closePopupimg} alt='' className='close-pop-up' />
+            </button>
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
+
       <div className='private-info-result-container'>
         <div className='result-info'>
           <div className='user-name-lastName-result-container'>

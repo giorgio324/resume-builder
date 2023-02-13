@@ -54,7 +54,6 @@ export const UserContextProvider = ({ children }) => {
       );
       setFetchedData(res.data);
       localStorage.setItem('featchedData', JSON.stringify(res.data));
-      console.log(fetchedData);
     } catch (error) {
       console.log(error);
     }
@@ -98,7 +97,6 @@ export const UserContextProvider = ({ children }) => {
         console.log('data i am sending :', formik.values);
         setPage(page + 1);
       }
-      console.log('page:', page);
     },
   });
   // fetch degree list from server
@@ -125,8 +123,7 @@ export const UserContextProvider = ({ children }) => {
     // this fixes a bug where touched is applyed to all values in formik when page changes
     formik.setTouched({});
   }, [page]);
-  console.log(formik.values);
-  console.log('res:', fetchedData);
+
   return (
     <UserContext.Provider
       value={{

@@ -13,8 +13,10 @@ const PrivateInfo = () => {
   const pictureHandler = (e) => {
     formik.setValues({
       ...formik.values,
-      image: URL.createObjectURL(e.target.files[0]),
+      image: e.target.files[0],
     });
+
+    console.log(e.target.files[0]);
   };
 
   return (

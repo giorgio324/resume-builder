@@ -12,16 +12,46 @@ export const UserContextProvider = ({ children }) => {
   });
   const checkDataCvs = async () => {
     try {
-      // const res = await fetch('https://resume.redberryinternship.ge/api/cvs', {
-      //   method: 'post',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formik.values),
-      // });
+      const formData = new FormData();
+      formData.append('name', formik.values.name);
+      formData.append('surname', formik.values.surname);
+      formData.append('about_me', formik.values.about_me);
+      formData.append('email', formik.values.email);
+      formData.append('phone_number', formik.values.phone_number);
+      formik.values.educations.forEach((education, index) => {
+        const educationKeys = Object.keys(education);
+        educationKeys.forEach((key) => {
+          formData.append(`educations[${index}][${key}]`, education[key]);
+        });
+      });
+      formik.values.experiences.forEach((experience, index) => {
+        const experienceKeys = Object.keys(experience);
+        experienceKeys.forEach((key) => {
+          formData.append(`experiences[${index}][${key}]`, experience[key]);
+        });
+      });
+
+      if (formik.values.image) {
+        if (typeof formik.values.image === 'string') {
+          // if image is already a URL string, just append it
+          formData.append('image', formik.values.image[0]);
+        } else {
+          // else, append the file object after checking it's a valid image type
+          const validImageTypes = ['image/png', 'image/jpeg', 'image/gif'];
+          if (validImageTypes.includes(formik.values.image.type)) {
+            formData.append('image', formik.values.image);
+          } else {
+            formik.setErrors({ image: ['The image must be an image.'] });
+            return;
+          }
+        }
+      }
+
       const res = await axios.post(
         'https://resume.redberryinternship.ge/api/cvs',
-        formik.values
+        formData
       );
-      console.log(res.data);
+      console.log('res:', res.data);
     } catch (error) {
       console.log(error);
     }
@@ -61,8 +91,8 @@ export const UserContextProvider = ({ children }) => {
       if (page <= 2) {
         setPage(page + 1);
       } else {
-        console.log('data i am sending :', formik.values);
         checkDataCvs();
+        console.log('data i am sending :', formik.values);
       }
       console.log('page:', page);
     },

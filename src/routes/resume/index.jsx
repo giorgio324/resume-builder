@@ -8,7 +8,7 @@ import FinalPage from '../../components/FinalPage';
 import { UserContext } from '../../context/global.context';
 import { useContext } from 'react';
 const Resume = () => {
-  const { page, fetchedData } = useContext(UserContext);
+  const { page } = useContext(UserContext);
   return (
     <ResumeLayout>
       {page === 1 ? (

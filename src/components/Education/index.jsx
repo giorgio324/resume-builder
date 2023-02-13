@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { UserContext } from '../../context/global.context';
 import CustomInput from '../CustomInput';
 import CustomButton from '../CustomButton';

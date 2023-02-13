@@ -4,6 +4,7 @@ import { schema } from '../schemas';
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
+  const [degreeList, setDegreeList] = useState([]);
   const [page, setPage] = useState(() => {
     const storedPage = localStorage.getItem('pageNumber');
     return storedPage ? JSON.parse(storedPage) : 1;
@@ -29,7 +30,7 @@ export const UserContextProvider = ({ children }) => {
     educations: [
       {
         institute: '',
-        degree: '',
+        degree_id: '',
         due_date: '',
         description: '',
       },
@@ -39,11 +40,29 @@ export const UserContextProvider = ({ children }) => {
     initialValues,
     validationSchema: schema[page - 1],
     onSubmit: (values) => {
-      console.log('submited values: ', values);
-      setPage(page + 1);
+      if (page <= 2) {
+        setPage(page + 1);
+      } else {
+        console.log('im ready to be sent');
+      }
+      console.log('page:', page);
     },
   });
-
+  // fetch degree list from server
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          'https://resume.redberryinternship.ge/api/degrees'
+        );
+        const responseData = await response.json();
+        setDegreeList(responseData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   // local storage setItem functions
   useEffect(() => {
     localStorage.setItem('formikInputValues', JSON.stringify(formik.values));
@@ -53,12 +72,14 @@ export const UserContextProvider = ({ children }) => {
     // this fixes a bug where touched is applyed to all values in formik when page changes
     formik.setTouched({});
   }, [page]);
+
   return (
     <UserContext.Provider
       value={{
         page,
         setPage,
         formik,
+        degreeList,
       }}
     >
       {children}

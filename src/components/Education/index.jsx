@@ -6,8 +6,8 @@ import validatedPassedIcon from '../../images/validationPassed.svg';
 import validatedFailedIcon from '../../images/validationFailed.svg';
 import './styles.css';
 const Education = () => {
-  const { page, setPage, formik } = useContext(UserContext);
-  const [degreeList, setDegreeList] = useState([]);
+  const { page, setPage, formik, degreeList } = useContext(UserContext);
+
   const handleAddEducationField = () => {
     formik.setValues({
       ...formik.values,
@@ -15,29 +15,16 @@ const Education = () => {
         ...formik.values.educations,
         {
           institute: '',
-          degree: '',
+          degree_id: '',
           due_date: '',
           description: '',
         },
       ],
     });
   };
-  // fetch degree list from server
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          'https://resume.redberryinternship.ge/api/degrees'
-        );
-        const responseData = await response.json();
-        setDegreeList(responseData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+
   console.log('degree list', degreeList);
+  console.log('values ', formik.values);
   return (
     <>
       <div className='fill-form-container'>
@@ -117,10 +104,10 @@ const Education = () => {
                       className={
                         formik.errors.educations &&
                         formik.errors.educations[index] &&
-                        formik.errors.educations[index].degree &&
+                        formik.errors.educations[index].degree_id &&
                         formik.touched.educations &&
                         formik.touched.educations[index] &&
-                        formik.touched.educations[index].degree
+                        formik.touched.educations[index].degree_id
                           ? 'unvalidated-input-label'
                           : 'degree-label'
                       }
@@ -131,24 +118,24 @@ const Education = () => {
                     {/* todo fix this */}
                     <select
                       id='degrees'
-                      name={`educations[${index}].degree`}
+                      name={`educations[${index}].degree_id`}
                       className={
                         formik.errors.educations &&
                         formik.errors.educations[index] &&
-                        formik.errors.educations[index].degree &&
+                        formik.errors.educations[index].degree_id &&
                         formik.touched.educations &&
                         formik.touched.educations[index] &&
-                        formik.touched.educations[index].degree
+                        formik.touched.educations[index].degree_id
                           ? 'degrees-select unvalidated-input'
                           : formik.touched.educations &&
                             formik.touched.educations[index] &&
-                            formik.touched.educations[index].degree
+                            formik.touched.educations[index].degree_id
                           ? 'degrees-select validated-input'
                           : 'degrees-select'
                       }
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      value={fieldName.degree}
+                      value={fieldName.degree_id}
                     >
                       <option
                         value=''
@@ -160,7 +147,11 @@ const Education = () => {
                       </option>
                       {degreeList.map((degree) => {
                         return (
-                          <option className='degree-options' key={degree.id}>
+                          <option
+                            className='degree-options'
+                            key={degree.id}
+                            value={degree.id}
+                          >
                             {degree.title}
                           </option>
                         );

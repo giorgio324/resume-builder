@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-const EducationPreview = ({ field }) => {
+const EducationPreview = ({ field, degreeList }) => {
   return (
     <div className='result-education-container'>
       <div className='result-learn-container'>
@@ -8,7 +8,11 @@ const EducationPreview = ({ field }) => {
           <p>{field.institute}</p>
         </div>
         <div className='result-education-degree'>
-          <p>{field.degree}</p>
+          <p>
+            {degreeList[field.degree_id - 1]
+              ? degreeList[field.degree_id - 1].title
+              : ''}
+          </p>
         </div>
       </div>
       <div className='result-education-endDate'>

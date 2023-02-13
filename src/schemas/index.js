@@ -44,7 +44,7 @@ export const schema = [
         institute: Yup.string()
           .required('Institute is required')
           .min(2, 'Institute must be at least 2 characters long'),
-        degree: Yup.string().required('Degree is required'),
+        degree_id: Yup.string().required('Degree is required'),
         due_date: Yup.date().required('Due date is required'),
         description: Yup.string().required('Description is required'),
       })

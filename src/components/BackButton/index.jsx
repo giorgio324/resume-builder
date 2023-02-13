@@ -25,7 +25,7 @@ const BackButton = () => {
       educations: [
         {
           institute: '',
-          degree: '',
+          degree_id: '',
           due_date: '',
           description: '',
         },
